@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Email</title>
+
+    <!-- meta tags -->
+    <meta name="title" content="Emailer — Modern Email Newsletter Platform" />
+    <meta
+      name="description"
+      content="Emailer is a modern, fast, and responsive email newsletter platform to create, manage, and send beautiful newsletters with ease."
+    />
+    <meta
+      name="keywords"
+      content="Emailer, email newsletter, newsletter builder, email marketing, responsive newsletters"
+    />
+    <meta name="author" content="Emailer" />
+
+    <!-- og tags -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Emailer — Modern Email Newsletter Platform"
+    />
+    <meta
+      property="og:description"
+      content="Create and send beautiful newsletters with Emailer. Powerful tools, analytics, and responsive design."
+    />
+    <meta property="og:site_name" content="Emailer" />
+
+    <!-- Font Awesome Cdn Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Aos Cdn Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Rajdhani:wght@300;400;500;600;700&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS  -->
+    <link rel="stylesheet" href="./src/output.css" />
+
+    <!-- Navbar -->
+    <style>
+      body {
+        font-family: "EB Garamond", serif;
+        overflow-x: hidden;
+      }
+
+      /* Hamburger animation */
+      .hamburger span {
+        display: block;
+        width: 1.5rem;
+        height: 0.125rem;
+        margin: 0.4rem auto;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        background-color: currentColor;
+      }
+
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+      }
+
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+
+      /* Mobile menu slide + fade */
+      .mobile-menu {
+        max-height: 0;
+        opacity: 0;
+        /* height: 100vh; */
+        transform: translateX(-100%);
+        /* overflow: hidden; */
+        transition: all 0.8s ease-in-out;
+      }
+
+      .mobile-menu.open {
+        /* max-height: 1000px; */
+        /* enough for nav links */
+        opacity: 1;
+        transform: translateX(0);
+      }
+    </style>
+
+    <!-- scroll -->
+    <style>
+      @keyframes marqueeScroll {
+        0% {
+          transform: translateX(0%);
+        }
+
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      .marquee-inner {
+        animation: marqueeScroll 25s linear infinite;
+      }
+
+      .marquee-reverse {
+        animation-direction: reverse;
+      }
+    </style>
+  </head>
+
+  <body class="antialiased bg-white text-black font-primary">
+    <!-- Navbar  -->
+    <header class="sticky top-0 z-40 w-full mx-auto">
+      <div
+        class="flex items-center justify-between px-3 h-16 bg-white shadow-md shadow-secondary backdrop-blur-2xl"
+      >
+        <!-- Logo -->
+        <a class="" href="./index.html">
+          <img class="h-8" src="./Assets1/logo.webp" alt="logo" />
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav
+          class="hidden md:flex items-center space-x-2 md:space-x-3 lg:space-x-5 text-sm font-medium"
+        >
+          <!-- Home with Dropdown -->
+          <div class="relative">
+            <!-- Parent Button -->
+            <button
+              class="relative text-primary inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full cursor-pointer"
+            >
+              <a href="./index.html">Home</a>
+              <i id="homeToggle" class="fa-solid fa-caret-down"></i>
+            </button>
+
+            <!-- Dropdown Menu -->
+            <ul
+              id="homeMenu"
+              class="absolute hidden bg-white text-black backdrop-blur-2xl shadow-lg mt-2 rounded w-40 z-40"
+            >
+              <li>
+                <a href="./Home2/index.html" class="block px-4 py-2">
+                  Home 2
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- About -->
+          <a
+            href="./Home1/about.html"
+            class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+          >
+            About
+          </a>
+
+          <!-- Services -->
+          <a
+            href="./Home1/service.html"
+            class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+          >
+            Services
+          </a>
+          <!-- Blogs -->
+          <a
+            href="./Home1/blog.html"
+            class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+          >
+            Blogs
+          </a>
+          <!-- Contact -->
+          <a
+            href="./Home1/contact.html"
+            class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+          >
+            Contact
+          </a>
+          <!-- Dashboard -->
+          <a
+            href="./Home1/dashboard.html"
+            class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+          >
+            Dashboard
+          </a>
+        </nav>
+
+        <!-- subscribe & login -->
+        <div class="flex text-sm gap-4 font-medium">
+          <div class="relative items-center gap-6 lg:flex hidden">
+            <a
+              class="md:flex items-center gap-2 text-sm transform hover:scale-95 transition duration-200 ease-out hidden border-2 border-primary px-6 py-2.5 bg-primary rounded-full text-white"
+              href="./Home1/subscribe.html"
+            >
+              Subscribe
+            </a>
+            <a
+              class="md:flex items-center gap-2 rounded-full px-6 py-2 text-primary border-2 border-primary text-sm transform hover:scale-95 transition duration-200 ease-out hidden"
+              href="./Home1/signin.html"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                />
+              </svg>
+              Login
+            </a>
+          </div>
+
+          <!-- Hamburger -->
+          <button
+            id="hamburger"
+            class="hamburger cursor-pointer lg:hidden focus:outline-none"
+            aria-label="Menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <nav id="mobileMenu" class="mobile-menu h-screen lg:hidden shadow-md">
+        <ul
+          class="flex flex-col space-y-4 p-3 text-sm font-medium h-screen md:w-1/2 bg-white backdrop-blur-2xl"
+        >
+          <!-- Home dropDown  -->
+          <div class="relative">
+            <button
+              class="flex items-center text-primary gap-1 w-full text-left lg:hidden"
+            >
+              <a href="./index.html">Home</a>
+              <i
+                id="mobileToggle"
+                class="fa-solid fa-caret-down cursor-pointer"
+              ></i>
+            </button>
+
+            <!-- Dropdown Menu -->
+            <ul
+              id="mobileLink"
+              class="hidden bg-white text-black mt-2 rounded w-full md:absolute"
+            >
+              <li>
+                <a href="./Home2/index.html" class="block px-2 py-2">
+                  Home 2
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!-- About -->
+          <li>
+            <a href="./Home1/about.html" class="nav-link block">About</a>
+          </li>
+          <!-- Services -->
+          <li>
+            <a href="./Home1/service.html" class="nav-link block">Services</a>
+          </li>
+          <!-- Blogs -->
+          <li>
+            <a href="./Home1/blog.html" class="nav-link block">Blogs</a>
+          </li>
+          <!-- Contact -->
+          <li>
+            <a href="./Home1/contact.html" class="nav-link block">Contact</a>
+          </li>
+          <!-- Dashboard -->
+          <li>
+            <a href="./Home1/dashboard.html" class="nav-link block"
+              >Dashboard</a
+            >
+          </li>
+          <!-- Subscribe  -->
+          <li>
+            <a
+              href="./Home1/subscribe.html"
+              class="flex items-center gap-2 nav-link"
+            >
+              Subscribe</a
+            >
+          </li>
+          <!-- login  -->
+          <li>
+            <a
+              href="./Home1/signin.html"
+              class="flex items-center gap-2 nav-link"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                />
+              </svg>
+              Login</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Dropdown script  -->
+      <script>
+        const homeToggle = document.getElementById("homeToggle");
+        const homeMenu = document.getElementById("homeMenu");
+
+        homeToggle.addEventListener("click", () => {
+          homeMenu.classList.toggle("hidden");
+        });
+
+        const mobileToggle = document.getElementById("mobileToggle");
+        const mobileLink = document.getElementById("mobileLink");
+
+        // Home dropdown toggle (mobile only)
+        mobileToggle.addEventListener("click", () => {
+          mobileLink.classList.toggle("hidden");
+        });
+
+        // Optional: close menu if clicked outside
+        window.addEventListener("click", (e) => {
+          if (!homeToggle.contains(e.target) && !homeMenu.contains(e.target)) {
+            homeMenu.classList.add("hidden");
+          }
+        });
+      </script>
+    </header>
+
+    <!-- Home -->
+    <main
+      class="px-3 py-10 bg-linear-to-b from-primary/10 to-white overflow-hidden"
+    >
+      <div class="mx-auto grid lg:grid-cols-2 gap-14 items-center">
+        <div class="space-y-6">
+          <h1
+            data-aos="zoom-in"
+            data-aos-delay="50"
+            class="text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-bold leading-tight"
+          >
+            Unleashing The Potential Strategic Email Studio.
+          </h1>
+          <p data-aos="zoom-in" data-aos-delay="70" class="text-sm md:text-lg">
+            Welcome to Zaimail your trusted partner in unlocking full potential
+            of email marketing. At our agency, we specialize in crafting
+            data-driven and highly targeted email campaign.
+          </p>
+
+          <a
+            data-aos="zoom-in"
+            data-aos-delay="90"
+            class="px-6 py-2.5 md:py-4 bg-primary rounded-full text-white"
+            href="./Home1/service.html"
+            >Explore Our Services</a
+          >
+        </div>
+
+        <div class="relative">
+          <img
+            data-aos="zoom-in-left"
+            data-aos-delay="90"
+            src="./Assets1/home1.webp"
+            alt="home"
+            class="rounded-xl shadow-xl h-[400px] object-cover w-full"
+          />
+          <div
+            class="absolute -top-5 -left-1 lg:-left-5 p-4 bg-white shadow-xl rounded-xl"
+          >
+            <p class="font-semibold text-primary">+42% Growth This Month</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- About Our Newsletter -->
+    <section class="px-3 py-10 overflow-hidden">
+      <h1
+        data-aos="fade-right"
+        data-aos-delay="50"
+        class="text-2xl md:text-3xl lg:text-4xl font-semibold text-center mx-auto"
+      >
+        About Our Newsletter
+      </h1>
+      <p
+        data-aos="fade-left"
+        data-aos-delay="100"
+        class="text-slate-500 text-center mt-2 max-w-xl mx-auto"
+      >
+        Stay inspired, stay informed — discover how our newsletter delivers
+        value directly to your inbox.
+      </p>
+
+      <div
+        class="mx-auto flex flex-col lg:flex-row items-center justify-center gap-8 py-6"
+      >
+        <!-- Image -->
+        <img
+          data-aos="fade-right"
+          data-aos-delay="130"
+          class="lg:max-w-lg w-full rounded-xl h-auto shadow-md"
+          src="./Assets1/about1.webp"
+          alt="Newsletter Illustration"
+        />
+
+        <!-- Content -->
+        <div>
+          <h1
+            data-aos="zoom-in"
+            data-aos-delay="50"
+            class="text-2xl font-semibold"
+          >
+            Why Our Newsletter Stands Out
+          </h1>
+          <p
+            data-aos="zoom-in"
+            data-aos-delay="70"
+            class="text-sm text-slate-500 mt-2"
+          >
+            Curated insights, marketing trends, premium resources, and
+            actionable tips — handcrafted for creators, businesses, and curious
+            minds.
+          </p>
+
+          <div class="flex flex-col gap-10 mt-6">
+            <!-- Feature 1 -->
+            <div
+              data-aos="zoom-in"
+              data-aos-delay="90"
+              class="flex items-center gap-4"
+            >
+              <div class="size-9 p-2 bg-blue-50 border border-blue-200 rounded">
+                <i class="fa-solid fa-chart-area"></i>
+              </div>
+              <div>
+                <h3 class="text-base font-medium text-slate-600">
+                  Fresh Weekly Insights
+                </h3>
+                <p class="text-sm text-slate-500">
+                  Get the latest marketing, business, and tech updates every
+                  week.
+                </p>
+              </div>
+            </div>
+
+            <!-- Feature 2 -->
+            <div
+              data-aos="zoom-in"
+              data-aos-delay="110"
+              class="flex items-center gap-4"
+            >
+              <div class="size-9 p-2 bg-blue-50 border border-blue-200 rounded">
+                <i class="fa-solid fa-bars"></i>
+              </div>
+              <div>
+                <h3 class="text-base font-medium text-slate-600">
+                  Exclusive Templates & Guides
+                </h3>
+                <p class="text-sm text-slate-500">
+                  Premium newsletter templates, strategies, and tools curated
+                  for you.
+                </p>
+              </div>
+            </div>
+
+            <!-- Feature 3 -->
+            <div
+              data-aos="zoom-in"
+              data-aos-delay="130"
+              class="flex items-center gap-4"
+            >
+              <div class="size-9 p-2 bg-blue-50 border border-blue-200 rounded">
+                <i class="fa-regular fa-user"></i>
+              </div>
+              <div>
+                <h3 class="text-base font-medium text-slate-600">
+                  Zero-Spam, Value Only
+                </h3>
+                <p class="text-sm text-slate-500">
+                  Your inbox is safe — we send content only when it truly
+                  matters.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Past Newsletters Section -->
+    <section class="py-16 px-3 bg-gray-50 overflow-hidden">
+      <div class="mx-auto">
+        <!-- Title -->
+        <div class="text-center mb-12">
+          <h2
+            data-aos="fade-left"
+            data-aos-delay="50"
+            class="text-3xl md:text-4xl font-bold text-gray-900"
+          >
+            Past <span class="text-primary">Newsletters</span>
+          </h2>
+          <p
+            data-aos="fade-right"
+            data-aos-delay="70"
+            class="text-gray-600 mt-3"
+          >
+            Explore our previous editions curated with insights, trends, and
+            updates.
+          </p>
+        </div>
+
+        <!-- Cards Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- CARD TEMPLATE (duplicate 6 times) -->
+          <!-- Card 1 -->
+          <div data-aos="zoom-in" data-aos-delay="50">
+            <div
+              class="newsletter-card bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200"
+              data-title="January Newsletter"
+              data-date="Jan 2025"
+              data-content="This January newsletter covers AI breakthroughs, UI/UX trends, performance optimization, and industry highlights. We discuss user engagement growth strategies and provide deep insights for designers & developers."
+            >
+              <div class="flex items-center gap-3 mb-4">
+                <div
+                  class="w-12 h-12 bg-primary/10 flex items-center justify-center rounded-lg text-primary text-xl font-semibold"
+                >
+                  JN
+                </div>
+                <div>
+                  <h3 class="font-semibold text-lg text-gray-900">
+                    January Newsletter
+                  </h3>
+                  <p class="text-sm text-gray-500">Published: Jan 2025</p>
+                </div>
+              </div>
+              <p class="text-gray-600">
+                AI breakthroughs, design trends, and key insights.
+              </p>
+              <button
+                class="readBtn mt-4 px-4 py-2 text-sm font-semibold text-primary hover:underline"
+              >
+                Read More →
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div data-aos="zoom-in" data-aos-delay="70">
+            <div
+              class="newsletter-card bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200"
+              data-title="February Newsletter"
+              data-date="Feb 2025"
+              data-content="This February edition introduces automation tools, UI frameworks, growth experiments, and improved performance techniques for newsletters and modern web apps."
+            >
+              <div class="flex items-center gap-3 mb-4">
+                <div
+                  class="w-12 h-12 bg-primary/10 flex items-center justify-center rounded-lg text-primary text-xl font-semibold"
+                >
+                  FB
+                </div>
+                <div>
+                  <h3 class="font-semibold text-lg text-gray-900">
+                    February Newsletter
+                  </h3>
+                  <p class="text-sm text-gray-500">Published: Feb 2025</p>
+                </div>
+              </div>
+              <p class="text-gray-600">
+                Automation tools, UX principles, and more.
+              </p>
+              <button
+                class="readBtn mt-4 px-4 py-2 text-sm font-semibold text-primary hover:underline"
+              >
+                Read More →
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div data-aos="zoom-in" data-aos-delay="90">
+            <div
+              class="newsletter-card bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200"
+              data-title="March Newsletter"
+              data-date="Mar 2025"
+              data-content="March newsletter dives into marketing strategies, email conversion optimization, real-world tests, and detailed performance reports for creators & businesses."
+            >
+              <div class="flex items-center gap-3 mb-4">
+                <div
+                  class="w-12 h-12 bg-primary/10 flex items-center justify-center rounded-lg text-primary text-xl font-semibold"
+                >
+                  MR
+                </div>
+                <div>
+                  <h3 class="font-semibold text-lg text-gray-900">
+                    March Newsletter
+                  </h3>
+                  <p class="text-sm text-gray-500">Published: Mar 2025</p>
+                </div>
+              </div>
+              <p class="text-gray-600">
+                Marketing strategies and premium insights.
+              </p>
+              <button
+                class="readBtn mt-4 px-4 py-2 text-sm font-semibold text-primary hover:underline"
+              >
+                Read More →
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div data-aos="zoom-in" data-aos-delay="110">
+            <div
+              class="newsletter-card bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200"
+              data-title="April Newsletter"
+              data-date="Apr 2025"
+              data-content="April edition focuses on system design, content psychology, and scalable email architecture with case studies and industry research."
+            >
+              <div class="flex items-center gap-3 mb-4">
+                <div
+                  class="w-12 h-12 bg-primary/10 flex items-center justify-center rounded-lg text-primary text-xl font-semibold"
+                >
+                  AP
+                </div>
+                <div>
+                  <h3 class="font-semibold text-lg text-gray-900">
+                    April Newsletter
+                  </h3>
+                  <p class="text-sm text-gray-500">Published: Apr 2025</p>
+                </div>
+              </div>
+              <p class="text-gray-600">System design & content psychology.</p>
+              <button
+                class="readBtn mt-4 px-4 py-2 text-sm font-semibold text-primary hover:underline"
+              >
+                Read More →
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div data-aos="zoom-in" data-aos-delay="130">
+            <div
+              class="newsletter-card bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200"
+              data-title="May Newsletter"
+              data-date="May 2025"
+              data-content="May newsletter features brand strategy guides, advanced segmentation techniques, visual design upgrades, and reader engagement analytics."
+            >
+              <div class="flex items-center gap-3 mb-4">
+                <div
+                  class="w-12 h-12 bg-primary/10 flex items-center justify-center rounded-lg text-primary text-xl font-semibold"
+                >
+                  MY
+                </div>
+                <div>
+                  <h3 class="font-semibold text-lg text-gray-900">
+                    May Newsletter
+                  </h3>
+                  <p class="text-sm text-gray-500">Published: May 2025</p>
+                </div>
+              </div>
+              <p class="text-gray-600">Brand strategy & analytics insights.</p>
+              <button
+                class="readBtn mt-4 px-4 py-2 text-sm font-semibold text-primary hover:underline"
+              >
+                Read More →
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div data-aos="zoom-in" data-aos-delay="150">
+            <div
+              class="newsletter-card bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200"
+              data-title="June Newsletter"
+              data-date="Jun 2025"
+              data-content="June edition focuses on lead nurturing, clean UI patterns, AI enhancements, and powerful newsletter conversion techniques."
+            >
+              <div class="flex items-center gap-3 mb-4">
+                <div
+                  class="w-12 h-12 bg-primary/10 flex items-center justify-center rounded-lg text-primary text-xl font-semibold"
+                >
+                  JN
+                </div>
+                <div>
+                  <h3 class="font-semibold text-lg text-gray-900">
+                    June Newsletter
+                  </h3>
+                  <p class="text-sm text-gray-500">Published: Jun 2025</p>
+                </div>
+              </div>
+              <p class="text-gray-600">Lead nurturing & AI enhancements.</p>
+              <button
+                class="readBtn mt-4 px-4 py-2 text-sm font-semibold text-primary hover:underline"
+              >
+                Read More →
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Popup Modal -->
+    <div id="newsletterModal" class="hidden px-3">
+      <div
+        class="fixed inset-0 bg-black/80 backdrop-blur-sm min-h-screen z-50 flex justify-center items-center"
+      >
+        <div
+          class="bg-white rounded-xl max-w-xl w-full p-6 shadow-2xl transform scale-95 transition-all duration-300"
+        >
+          <!-- Close button -->
+          <button
+            id="closeModal"
+            class="float-right text-gray-600 hover:text-red-500 text-xl"
+          >
+            ✕
+          </button>
+
+          <h2
+            id="modalTitle"
+            class="text-2xl font-bold text-gray-900 mt-4"
+          ></h2>
+          <p id="modalDate" class="text-gray-500 text-sm mt-1"></p>
+          <p id="modalContent" class="text-gray-700 mt-4 leading-relaxed"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- scroll section -->
+    <section class="px-3 py-6 overflow-hidden">
+      <h1
+        data-aos="zoom-in"
+        data-aos-delay="90"
+        class="text-2xl md:text-4xl font-bold w-fit"
+      >
+        What our subscribers says
+      </h1>
+      <div class="marquee-row w-full mx-auto overflow-hidden relative">
+        <div
+          class="absolute left-0 top-0 h-full w-10 z-10 pointer-events-none bg-linear-to-r from-white to-transparent"
+        ></div>
+        <div
+          class="marquee-inner flex transform-gpu min-w-[200%] pt-10 pb-5"
+          id="row1"
+        ></div>
+        <div
+          class="absolute right-0 top-0 h-full w-20 md:w-40 z-10 pointer-events-none bg-linear-to-l from-white to-transparent"
+        ></div>
+      </div>
+
+      <div class="marquee-row w-full mx-auto overflow-hidden relative">
+        <div
+          class="absolute left-0 top-0 h-full w-10 z-10 pointer-events-none bg-linear-to-r from-white to-transparent"
+        ></div>
+        <div
+          class="marquee-inner marquee-reverse flex transform-gpu min-w-[200%] pt-5 pb-10"
+          id="row2"
+        ></div>
+        <div
+          class="absolute right-0 top-0 h-full w-20 md:w-40 z-10 pointer-events-none bg-linear-to-l from-white to-transparent"
+        ></div>
+      </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="px-3 py-6 overflow-hidden">
+      <div class="w-full bg-white">
+        <div class="mx-auto">
+          <!-- Heading -->
+          <div class="text-center mb-12">
+            <h2
+              data-aos="fade-left"
+              data-aos-delay="30"
+              class="text-3xl md:text-4xl font-bold text-gray-900"
+            >
+              Powerful Features for Modern Emailing
+            </h2>
+            <p
+              data-aos="fade-right"
+              data-aos-delay="70"
+              class="mt-3 text-gray-600 max-w-2xl mx-auto"
+            >
+              Everything you need to create, manage, and grow your newsletter
+              with ease.
+            </p>
+          </div>
+
+          <!-- Features Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Feature 1 -->
+            <div data-aos="zoom-in" data-aos-delay="50">
+              <div
+                class="p-8 bg-gray-50 rounded-2xl shadow-sm hover:shadow-md transition-all"
+              >
+                <div
+                  class="flex items-center justify-center w-14 h-14 rounded-xl bg-primary/10 mx-auto mb-6"
+                >
+                  <!-- Heroicon -->
+                  <svg
+                    class="w-8 h-8 text-blue-600"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M21.75 6.75l-9.75 6-9.75-6m19.5 0v10.5a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 17.25V6.75m19.5 0L12 12.75"
+                    />
+                  </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-center mb-2">
+                  Smart Newsletter Builder
+                </h3>
+                <p class="text-gray-600 text-center">
+                  Design beautiful emails with an intuitive drag & drop editor
+                  tailored for speed.
+                </p>
+              </div>
+            </div>
+
+            <!-- Feature 2 -->
+            <div data-aos="zoom-in" data-aos-delay="70">
+              <div
+                class="p-8 bg-gray-50 rounded-2xl shadow-sm hover:shadow-md transition-all"
+              >
+                <div
+                  class="flex items-center justify-center w-14 h-14 rounded-xl bg-primary/10 mx-auto mb-6"
+                >
+                  <!-- Font Awesome -->
+                  <i class="fa-solid fa-chart-line text-3xl text-blue-600"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-center mb-2">
+                  Real-Time Analytics
+                </h3>
+                <p class="text-gray-600 text-center">
+                  Track opens, clicks, engagement, and performance in real time.
+                </p>
+              </div>
+            </div>
+
+            <!-- Feature 3 -->
+            <div data-aos="zoom-in" data-aos-delay="90">
+              <div
+                class="p-8 bg-gray-50 rounded-2xl shadow-sm hover:shadow-md transition-all"
+              >
+                <div
+                  class="flex items-center justify-center w-14 h-14 rounded-xl bg-primary/10 mx-auto mb-6"
+                >
+                  <!-- Heroicon -->
+                  <svg
+                    class="w-8 h-8 text-blue-600"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M2.25 12l8.954-8.955c.44-.439 1.152-.128 1.152.49V9.75h6.214c.621 0 .933.714.49 1.152L11.25 19.5V13.5H3c-.621 0-.933-.714-.49-1.152L2.25 12z"
+                    />
+                  </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-center mb-2">
+                  Automated Workflows
+                </h3>
+                <p class="text-gray-600 text-center">
+                  Build sequences, welcome emails, and smart triggers to boost
+                  engagement.
+                </p>
+              </div>
+            </div>
+
+            <!-- Feature 4 -->
+            <div data-aos="zoom-in" data-aos-delay="110">
+              <div
+                class="p-8 bg-gray-50 rounded-2xl shadow-sm hover:shadow-md transition-all"
+              >
+                <div
+                  class="flex items-center justify-center w-14 h-14 rounded-xl bg-primary/10 mx-auto mb-6"
+                >
+                  <i class="fa-solid fa-user-group text-3xl text-blue-600"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-center mb-2">
+                  Audience Segmentation
+                </h3>
+                <p class="text-gray-600 text-center">
+                  Personalize campaigns with advanced group and tagging tools.
+                </p>
+              </div>
+            </div>
+
+            <!-- Feature 5 -->
+            <div data-aos="zoom-in" data-aos-delay="130">
+              <div
+                class="p-8 bg-gray-50 rounded-2xl shadow-sm hover:shadow-md transition-all"
+              >
+                <div
+                  class="flex items-center justify-center w-14 h-14 rounded-xl bg-primary/10 mx-auto mb-6"
+                >
+                  <i class="fa-solid fa-bolt text-3xl text-blue-600"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-center mb-2">
+                  Ultra-Fast Delivery
+                </h3>
+                <p class="text-gray-600 text-center">
+                  High-speed sending powered by enterprise-grade delivery
+                  systems.
+                </p>
+              </div>
+            </div>
+
+            <!-- Feature 6 -->
+            <div data-aos="zoom-in" data-aos-delay="170">
+              <div
+                class="p-8 bg-gray-50 rounded-2xl shadow-sm hover:shadow-md transition-all"
+              >
+                <div
+                  class="flex items-center justify-center w-14 h-14 rounded-xl bg-primary/10 mx-auto mb-6"
+                >
+                  <i
+                    class="fa-solid fa-shield-halved text-3xl text-blue-600"
+                  ></i>
+                </div>
+                <h3 class="text-xl font-semibold text-center mb-2">
+                  Secure & Reliable
+                </h3>
+                <p class="text-gray-600 text-center">
+                  Strong data protection and encrypted systems to safeguard user
+                  data.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Meet Our Editorial Team -->
+    <section class="py-8 md:py-16 bg-gray-50 px-3 overflow-hidden">
+      <div class="mx-auto">
+        <div class="text-center mb-12">
+          <h2
+            data-aos="zoom-in-right"
+            data-aos-delay="70"
+            class="text-3xl md:text-4xl font-bold text-gray-900"
+          >
+            Meet Our Team
+          </h2>
+          <p
+            data-aos="zoom-in-left"
+            data-aos-delay="70"
+            class="text-gray-600 max-w-2xl mx-auto mt-3"
+          >
+            Our talented members work behind the scenes to build seamless
+            newsletter experiences that help brands grow.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+          <div data-aos="zoom-in" data-aos-delay="50">
+            <div
+              class="bg-white shadow-lg rounded-xl p-6 text-center hover:-translate-y-2 transition duration-500 ease-out"
+            >
+              <img
+                src="./Assets1/men1.webp"
+                alt="user1"
+                class="w-28 h-28 rounded-full mx-auto object-cover object-top"
+              />
+              <h3 class="text-xl font-semibold mt-4">Aarav Sharma</h3>
+              <p class="text-primary text-sm font-medium mt-1">Founder & CEO</p>
+              <p class="text-gray-600 text-sm mt-3">
+                Leading the vision, strategy, and innovation behind our
+                newsletter systems.
+              </p>
+              <div class="flex justify-center mt-4 space-x-4 text-gray-500">
+                <a href="./Home1/404.html"
+                  ><i class="fab fa-linkedin text-xl hover:text-primary"></i
+                ></a>
+                <i class="fab fa-twitter text-xl hover:text-primary"></i>
+
+                <a href="./Home1/404.html"
+                  ><i class="fab fa-linkedin text-xl hover:text-primary"></i
+                ></a>
+                <a href="./Home1/404.html">
+                  <i class="fab fa-facebook text-xl hover:text-primary"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div data-aos="zoom-in" data-aos-delay="70">
+            <div
+              class="bg-white shadow-lg rounded-xl p-6 text-center hover:-translate-y-2 transition duration-500 ease-out"
+            >
+              <img
+                src="./Assets1/men2.webp"
+                alt="user2"
+                class="w-28 h-28 object-cover object-top rounded-full mx-auto"
+              />
+              <h3 class="text-xl font-semibold mt-4">Deva Patel</h3>
+              <p class="text-primary text-sm font-medium mt-1">
+                Lead UI/UX Designer
+              </p>
+              <p class="text-gray-600 text-sm mt-3">
+                Designs smooth and appealing newsletter templates and user
+                experiences.
+              </p>
+              <div class="flex justify-center mt-4 space-x-4 text-gray-500">
+                <a href="./Home1/404.html"
+                  ><i class="fab fa-linkedin text-xl hover:text-primary"></i
+                ></a>
+                <i class="fab fa-twitter text-xl hover:text-primary"></i>
+
+                <a href="./Home1/404.html"
+                  ><i class="fab fa-linkedin text-xl hover:text-primary"></i
+                ></a>
+                <a href="./Home1/404.html">
+                  <i class="fab fa-facebook text-xl hover:text-primary"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div data-aos="zoom-in" data-aos-delay="90">
+            <div
+              class="bg-white shadow-lg rounded-xl p-6 text-center hover:-translate-y-2 transition duration-500 ease-out"
+            >
+              <img
+                src="./Assets1/men3.webp"
+                alt="user3"
+                class="w-28 h-28 object-cover object-top rounded-full mx-auto"
+              />
+              <h3 class="text-xl font-semibold mt-4">Rohan Verma</h3>
+              <p class="text-primary text-sm font-medium mt-1">
+                Head of Content
+              </p>
+              <p class="text-gray-600 text-sm mt-3">
+                Creates engaging newsletter content that improves user
+                retention.
+              </p>
+              <div class="flex justify-center mt-4 space-x-4 text-gray-500">
+                <a href="./Home1/404.html"
+                  ><i class="fab fa-linkedin text-xl hover:text-primary"></i
+                ></a>
+                <i class="fab fa-twitter text-xl hover:text-primary"></i>
+
+                <a href="./Home1/404.html"
+                  ><i class="fab fa-linkedin text-xl hover:text-primary"></i
+                ></a>
+                <a href="./Home1/404.html">
+                  <i class="fab fa-facebook text-xl hover:text-primary"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div data-aos="zoom-in-right" data-aos-delay="110">
+            <div
+              class="bg-white shadow-lg rounded-xl p-6 text-center hover:-translate-y-2 transition duration-500 ease-out"
+            >
+              <img
+                src="./Assets1/men4.webp"
+                alt="user4"
+                class="w-28 h-28 object-cover object-top rounded-full mx-auto"
+              />
+              <h3 class="text-xl font-semibold mt-4">Sneha Kapoor</h3>
+              <p class="text-primary text-sm font-medium mt-1">
+                Marketing Manager
+              </p>
+              <p class="text-gray-600 text-sm mt-3">
+                Drives user engagement, analytics, and newsletter growth
+                campaigns.
+              </p>
+              <div class="flex justify-center mt-4 space-x-4 text-gray-500">
+                <a href="./Home1/404.html"
+                  ><i class="fab fa-linkedin text-xl hover:text-primary"></i
+                ></a>
+                <i class="fab fa-twitter text-xl hover:text-primary"></i>
+
+                <a href="./Home1/404.html"
+                  ><i class="fab fa-linkedin text-xl hover:text-primary"></i
+                ></a>
+                <a href="./Home1/404.html">
+                  <i class="fab fa-facebook text-xl hover:text-primary"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Start Your Newsletter in Minutes -->
+    <section class="px-3 py-16 text-black overflow-hidden">
+      <div class="max-w-5xl mx-auto text-center space-y-6">
+        <h2 class="text-3xl md:text-4xl font-bold">
+          Start Your Newsletter in Minutes
+        </h2>
+        <p class="opacity-90 max-w-2xl mx-auto">
+          No coding required. Just sign up, write your first email, and start
+          building your audience.
+        </p>
+        <div class="mt-10">
+          <a
+            href="./Home1/404.html"
+            class="bg-white text-primary px-8 py-3 rounded-xl font-semibold hover:bg-gray-100 shadow"
+          >
+            Get Started Free
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="bg-gray-900 text-gray-300 overflow-hidden">
+      <div class="mx-auto px-3 py-8 grid sm:grid-cols-2 md:grid-cols-4 gap-12">
+        <!-- BRAND + TEXT -->
+        <div class="space-y-4">
+          <h2 class="text-2xl font-bold text-white">NewsletterPro</h2>
+          <p class="text-gray-400 text-sm md:text-lg">
+            Create, design, and send stunning email newsletters with powerful
+            automation and analytics.
+          </p>
+
+          <!-- Social Icons -->
+          <div class="flex gap-4 mt-4">
+            <a
+              href="./Home1/404.html"
+              class="text-gray-400 hover:text-white text-xl"
+            >
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a
+              href="./Home1/404.html"
+              class="text-gray-400 hover:text-white text-xl"
+            >
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a
+              href="./Home1/404.html"
+              class="text-gray-400 hover:text-white text-xl"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a
+              href="./Home1/404.html"
+              class="text-gray-400 hover:text-white text-xl"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- QUICK LINKS -->
+        <div>
+          <h3 class="text-white text-lg font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="./index.html" class="hover:text-white transition"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a href="./Home1/about.html" class="hover:text-white transition"
+                >About</a
+              >
+            </li>
+            <li>
+              <a href="./Home1/service.html" class="hover:text-white transition"
+                >Services</a
+              >
+            </li>
+            <li>
+              <a href="./Home1/blog.html" class="hover:text-white transition"
+                >Blogs</a
+              >
+            </li>
+            <li>
+              <a href="./Home1/contact.html" class="hover:text-white transition"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- SUPPORT -->
+        <div>
+          <h3 class="text-white text-lg font-semibold mb-4">Get In Touch</h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="./Home1/404.html" class="hover:text-white transition"
+                >+1-212-456-7890
+              </a>
+            </li>
+            <li>
+              <a href="./Home1/404.html" class="hover:text-white transition"
+                >contact@example.com</a
+              >
+            </li>
+            <li>
+              <a href="./Home1/404.html" class="hover:text-white transition"
+                >221b Elementary Avenue, NY</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- NEWSLETTER SIGNUP -->
+        <div>
+          <h3 class="text-white text-lg font-semibold mb-4">Subscribe</h3>
+          <p class="text-gray-400 text-sm md:text-lg mb-4">
+            Join 20,000+ marketers & creators. Get weekly insights in your
+            inbox.
+          </p>
+
+          <form
+            id="sub-form"
+            method="get"
+            action="./Home1/404.html"
+            class="flex items-center bg-gray-800 rounded-xl overflow-hidden"
+          >
+            <input
+              type="email"
+              placeholder="Enter your email"
+              pattern=".+@gmail\.com$"
+              title="Email must end with @gmail.com"
+              required
+              class="flex-1 bg-transparent px-4 py-3 text-gray-300 focus:outline-none"
+            />
+            <button
+              pattern=".+@gmail\.com$"
+              title="Email must end with @gmail.com"
+              required
+              type="submit"
+              class="px-5 py-3 bg-primary text-white font-semibold hover:opacity-90 transition"
+            >
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="overflow-hidden px-3">
+        <!-- Google Map -->
+        <div class="rounded-2xl w-full overflow-hidden shadow-lg mb-3">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3907.1616097152896!2d78.1739798!3d11.682956599999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babefef7fd970bb%3A0xe11aef1a71994f9!2sStackly!5e0!3m2!1sen!2sin!4v1755667813665!5m2!1sen!2sin"
+            width="100%"
+            height="250"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+
+      <div
+        class="flex items-center justify-center text-center border-t border-gray-300/30"
+      >
+        <div>
+          <p class="pt-4 text-lg pb-4">
+            Copyright 2025 © <a href="./Home1/404.html">Stackly</a>. All Right
+            Reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Aos Animation  -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+      integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- mobile menu script -->
+    <script>
+      // sub-form reset
+      const form = document.querySelector("#sub-form");
+      form.addEventListener("submit", () => {
+        form.reset();
+      });
+
+      // Aos Animation Init
+      AOS.init({
+        duration: 800,
+        delay: 200, // default delay for all elements
+        once: false,
+        mirror: true,
+      });
+
+      // Hamburger Menu Toggle
+      const hamburger = document.getElementById("hamburger");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const links = mobileMenu.querySelectorAll(".nav-link");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        mobileMenu.classList.toggle("open");
+      });
+
+      links.forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("active");
+          mobileMenu.classList.remove("open");
+        });
+      });
+
+      // Optional: close menu if clicked outside
+      window.addEventListener("click", (e) => {
+        if (!homeToggle.contains(e.target) && !homeMenu.contains(e.target)) {
+          homeMenu.classList.add("hidden");
+        }
+      });
+    </script>
+
+    <!-- pop up js  -->
+    <script>
+      const modal = document.getElementById("newsletterModal");
+      const closeModal = document.getElementById("closeModal");
+
+      document.querySelectorAll(".readBtn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const card = btn.closest(".newsletter-card");
+
+          document.getElementById("modalTitle").innerText = card.dataset.title;
+          document.getElementById("modalDate").innerText =
+            "Published: " + card.dataset.date;
+          document.getElementById("modalContent").innerText =
+            card.dataset.content;
+
+          modal.classList.remove("hidden");
+
+          // smooth fade + scale
+          // setTimeout(() => {
+          //   modal.classList.remove("opacity-0");
+          // }, 10);
+        });
+      });
+
+      closeModal.addEventListener("click", () => {
+        // modal.classList.add("opacity-0");
+        // setTimeout(() => , 300);
+        modal.classList.add("hidden");
+      });
+    </script>
+
+    <!-- scroll section -->
+    <script>
+      const cardsData = [
+        {
+          image: "../Assets1/men1.webp",
+          name: "Briar Martin",
+          handle: "@neilstellar",
+          date: "April 20, 2025",
+        },
+        {
+          image: "../Assets1/men2.webp",
+          name: "Avery Johnson",
+          handle: "@averywrites",
+          date: "May 10, 2025",
+        },
+        {
+          image: "../Assets1/men3.webp",
+          name: "Jordan Lee",
+          handle: "@jordantalks",
+          date: "June 5, 2025",
+        },
+        {
+          image: "../Assets1/men4.webp",
+          name: "Avery Johnson",
+          handle: "@averywrites",
+          date: "May 10, 2025",
+        },
+      ];
+
+      const row1 = document.getElementById("row1");
+      const row2 = document.getElementById("row2");
+
+      const createCard = (card) => `
+        <div class="p-4 rounded-lg mx-4 shadow hover:shadow-lg transition-all duration-200 w-72 shrink-0">
+            <div class="flex gap-2">
+                <img class="size-11 rounded-full object-cover object-top" src="${card.image}" alt="User Image">
+                <div class="flex flex-col">
+                    <div class="flex items-center gap-1">
+                        <p>${card.name}</p>
+                        <svg class="mt-0.5" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M4.555.72a4 4 0 0 1-.297.24c-.179.12-.38.202-.59.244a4 4 0 0 1-.38.041c-.48.039-.721.058-.922.129a1.63 1.63 0 0 0-.992.992c-.071.2-.09.441-.129.922a4 4 0 0 1-.041.38 1.6 1.6 0 0 1-.245.59 3 3 0 0 1-.239.297c-.313.368-.47.551-.56.743-.213.444-.213.96 0 1.404.09.192.247.375.56.743.125.146.187.219.24.297.12.179.202.38.244.59.018.093.026.189.041.38.039.48.058.721.129.922.163.464.528.829.992.992.2.071.441.09.922.129.191.015.287.023.38.041.21.042.411.125.59.245.078.052.151.114.297.239.368.313.551.47.743.56.444.213.96.213 1.404 0 .192-.09.375-.247.743-.56.146-.125.219-.187.297-.24.179-.12.38-.202.59-.244a4 4 0 0 1 .38-.041c.48-.039.721-.058.922-.129.464-.163.829-.528.992-.992.071-.2.09-.441.129-.922a4 4 0 0 1 .041-.38c.042-.21.125-.411.245-.59.052-.078.114-.151.239-.297.313-.368.47-.551.56-.743.213-.444.213-.96 0-1.404-.09-.192-.247-.375-.56-.743a4 4 0 0 1-.24-.297 1.6 1.6 0 0 1-.244-.59 3 3 0 0 1-.041-.38c-.039-.48-.058-.721-.129-.922a1.63 1.63 0 0 0-.992-.992c-.2-.071-.441-.09-.922-.129a4 4 0 0 1-.38-.041 1.6 1.6 0 0 1-.59-.245A3 3 0 0 1 7.445.72C7.077.407 6.894.25 6.702.16a1.63 1.63 0 0 0-1.404 0c-.192.09-.375.247-.743.56m4.07 3.998a.488.488 0 0 0-.691-.69l-2.91 2.91-.958-.957a.488.488 0 0 0-.69.69l1.302 1.302c.19.191.5.191.69 0z" fill="#2196F3" />
+                        </svg>
+                    </div>
+                    <span class="text-xs text-slate-500">${card.handle}</span>
+                </div>
+            </div>
+            <p class="text-sm py-4 text-gray-800">Radiant made undercutting all of our competitors an absolute
+                breeze.</p>
+            <div class="flex items-center justify-between text-slate-500 text-xs">
+                <div class="flex items-center gap-1">
+                    <span>Posted on</span>
+                    <a href="https://x.com" target="_blank" class="hover:text-sky-500">
+                        <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m.027 0 4.247 5.516L0 10h.962l3.742-3.926L7.727 10H11L6.514 4.174 10.492 0H9.53L6.084 3.616 3.3 0zM1.44.688h1.504l6.64 8.624H8.082z" fill="currentColor" />
+                        </svg>
+                    </a>
+                </div>
+                <p>${card.date}</p>
+            </div>
+        </div>
+    `;
+
+      const renderCards = (target) => {
+        const doubled = [...cardsData, ...cardsData];
+        doubled.forEach((card) =>
+          target.insertAdjacentHTML("beforeend", createCard(card))
+        );
+      };
+
+      renderCards(row1);
+      renderCards(row2);
+    </script>
+  </body>
+</html>

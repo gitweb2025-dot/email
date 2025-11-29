@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Email</title>
+
+    <!-- meta tags -->
+    <meta name="title" content="Emailer — Modern Email Newsletter Platform" />
+    <meta
+      name="description"
+      content="Emailer is a modern, fast, and responsive email newsletter platform to create, manage, and send beautiful newsletters with ease."
+    />
+    <meta
+      name="keywords"
+      content="Emailer, email newsletter, newsletter builder, email marketing, responsive newsletters"
+    />
+    <meta name="author" content="Emailer" />
+
+    <!-- og tags -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Emailer — Modern Email Newsletter Platform"
+    />
+    <meta
+      property="og:description"
+      content="Create and send beautiful newsletters with Emailer. Powerful tools, analytics, and responsive design."
+    />
+    <meta property="og:site_name" content="Emailer" />
+
+    <!-- Font Awesome Cdn Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Aos Cdn Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Rajdhani:wght@300;400;500;600;700&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS  -->
+    <link rel="stylesheet" href="../src/output.css" />
+
+    <!-- Chart JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Navbar -->
+    <style>
+      body {
+        font-family: "EB Garamond", serif;
+        overflow-x: hidden;
+      }
+
+      /* Hamburger animation */
+      .hamburger span {
+        display: block;
+        width: 1.5rem;
+        height: 0.125rem;
+        margin: 0.4rem auto;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        background-color: currentColor;
+      }
+
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+      }
+
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+
+      /* Mobile menu slide + fade */
+      .mobile-menu {
+        max-height: 0;
+        opacity: 0;
+        /* height: 100vh; */
+        transform: translateX(-100%);
+        /* overflow: hidden; */
+        transition: all 0.8s ease-in-out;
+      }
+
+      .mobile-menu.open {
+        /* max-height: 1000px; */
+        /* enough for nav links */
+        opacity: 1;
+        transform: translateX(0);
+      }
+    </style>
+  </head>
+
+  <body class="antialiased bg-white text-black font-primary">
+    <!-- Navbar  -->
+    <header class="sticky top-0 z-40 w-full mx-auto">
+      <div
+        class="flex items-center justify-between px-3 h-16 bg-white shadow-md shadow-secondary backdrop-blur-2xl"
+      >
+        <!-- Logo -->
+        <a class="" href="../index.html">
+          <img class="h-8" src="../Assets1/logo.webp" alt="logo" />
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav
+          class="hidden md:flex items-center space-x-2 md:space-x-3 lg:space-x-5 text-sm font-medium"
+        >
+          <!-- Home with Dropdown -->
+          <div class="relative">
+            <!-- Parent Button -->
+            <button
+              class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full cursor-pointer"
+            >
+              <a href="../index.html">Home</a>
+              <i id="homeToggle" class="fa-solid fa-caret-down"></i>
+            </button>
+
+            <!-- Dropdown Menu -->
+            <ul
+              id="homeMenu"
+              class="absolute hidden bg-white text-black backdrop-blur-2xl shadow-lg mt-2 rounded w-40 z-40"
+            >
+              <li>
+                <a href="../Home2/index.html" class="block px-4 py-2">
+                  Home 2
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- About -->
+          <a
+            href="./about.html"
+            class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+          >
+            About
+          </a>
+
+          <!-- Services -->
+          <a
+            href="./service.html"
+            class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+          >
+            Services
+          </a>
+          <!-- Blogs -->
+          <a
+            href="./blog.html"
+            class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+          >
+            Blogs
+          </a>
+          <!-- Contact -->
+          <a
+            href="./contact.html"
+            class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+          >
+            Contact
+          </a>
+          <!-- Dashboard -->
+          <a
+            href="./dashboard.html"
+            class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+          >
+            Dashboard
+          </a>
+        </nav>
+
+        <!-- subscribe & login -->
+        <div class="flex text-sm gap-4 font-medium">
+          <div class="relative items-center gap-6 lg:flex hidden">
+            <a
+              class="md:flex items-center gap-2 text-sm transform hover:scale-95 transition duration-200 ease-out hidden border-2 border-primary px-6 py-2.5 bg-primary rounded-full text-white"
+              href="./subscribe.html"
+            >
+              Subscribe
+            </a>
+            <a
+              class="md:flex items-center gap-2 rounded-full px-6 py-2 text-primary border-2 border-primary text-sm transform hover:scale-95 transition duration-200 ease-out hidden"
+              href="./signin.html"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                />
+              </svg>
+              Login
+            </a>
+          </div>
+
+          <!-- Hamburger -->
+          <button
+            id="hamburger"
+            class="hamburger cursor-pointer lg:hidden focus:outline-none"
+            aria-label="Menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <nav id="mobileMenu" class="mobile-menu h-screen lg:hidden shadow-md">
+        <ul
+          class="flex flex-col space-y-4 p-3 text-sm font-medium h-screen md:w-1/2 bg-white backdrop-blur-2xl"
+        >
+          <!-- Home dropDown  -->
+          <div class="relative">
+            <button class="flex items-center gap-1 w-full text-left lg:hidden">
+              <a href="../index.html">Home</a>
+              <i
+                id="mobileToggle"
+                class="fa-solid fa-caret-down cursor-pointer"
+              ></i>
+            </button>
+
+            <!-- Dropdown Menu -->
+            <ul
+              id="mobileLink"
+              class="hidden bg-white text-black mt-2 rounded w-full md:absolute"
+            >
+              <li>
+                <a href="../Home2/index.html" class="block px-2 py-2">
+                  Home 2
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!-- About -->
+          <li>
+            <a href="./about.html" class="nav-link block">About</a>
+          </li>
+          <!-- Services -->
+          <li>
+            <a href="./service.html" class="nav-link block">Services</a>
+          </li>
+          <!-- Blogs -->
+          <li>
+            <a href="./blog.html" class="nav-link block">Blogs</a>
+          </li>
+          <!-- Contact -->
+          <li>
+            <a href="./contact.html" class="nav-link block">Contact</a>
+          </li>
+          <!-- Dashboard -->
+          <li>
+            <a href="./dashboard.html" class="nav-link block">Dashboard</a>
+          </li>
+          <!-- Subscribe  -->
+          <li>
+            <a href="./subscribe.html" class="flex items-center gap-2 nav-link">
+              Subscribe</a
+            >
+          </li>
+          <!-- login  -->
+          <li>
+            <a href="./signin.html" class="flex items-center gap-2 nav-link"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                />
+              </svg>
+              Login</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Dropdown script  -->
+      <script>
+        const homeToggle = document.getElementById("homeToggle");
+        const homeMenu = document.getElementById("homeMenu");
+
+        homeToggle.addEventListener("click", () => {
+          homeMenu.classList.toggle("hidden");
+        });
+
+        const mobileToggle = document.getElementById("mobileToggle");
+        const mobileLink = document.getElementById("mobileLink");
+
+        // Home dropdown toggle (mobile only)
+        mobileToggle.addEventListener("click", () => {
+          mobileLink.classList.toggle("hidden");
+        });
+
+        // Optional: close menu if clicked outside
+        window.addEventListener("click", (e) => {
+          if (!homeToggle.contains(e.target) && !homeMenu.contains(e.target)) {
+            homeMenu.classList.add("hidden");
+          }
+        });
+      </script>
+    </header>
+
+    <!-- subscribe section -->
+    <section class="relative py-10 md:py-20 px-3 bg-white overflow-hidden">
+      <div class="mx-auto grid md:grid-cols-2 gap-16 items-center">
+        <!-- RIGHT IMAGE -->
+        <div
+          data-aos="zoom-in-left"
+          data-aos-delay="150"
+          class="relative flex justify-center w-full h-full"
+        >
+          <div
+            class="absolute w-full h-full bg-primary/5 rounded-full blur-3xl"
+          ></div>
+
+          <img
+            src="../Assets1/subscribe.webp"
+            class="relative w-full h-full object-cover rounded-3xl shadow-xl"
+            alt="Newsletter Preview"
+          />
+        </div>
+
+        <!-- LEFT CONTENT -->
+        <div>
+          <h1
+            data-aos="zoom-in"
+            data-aos-delay="50"
+            class="text-3xl md:text-4xl font-bold leading-tight text-[#0c1b4d]"
+          >
+            Subscribe to our <br />
+            newsletter today
+          </h1>
+
+          <p
+            data-aos="zoom-in"
+            data-aos-delay="70"
+            class="text-gray-600 mt-4 leading-relaxed max-w-md"
+          >
+            At imperdiet dui accumsan sit amet. Sed odio mauris quis commodo
+            odio pellentesque aenean. Massa tincidunt dui ut ornare lectus sit
+            amet est placerat.
+          </p>
+
+          <!-- Features -->
+          <div class="mt-8 space-y-4">
+            <div
+              data-aos="zoom-in"
+              data-aos-delay="90"
+              class="flex items-center gap-3"
+            >
+              <div
+                class="w-6 h-6 flex items-center justify-center rounded-full bg-primary/10"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-4 h-4 text-primary"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M9 16.17l-3.88-3.88L4 13.41l5 5 9-9-1.41-1.42z" />
+                </svg>
+              </div>
+              <p class="text-gray-700 font-medium">Weekly email newsletters</p>
+            </div>
+
+            <div
+              data-aos="zoom-in"
+              data-aos-delay="110"
+              class="flex items-center gap-3"
+            >
+              <div
+                class="w-6 h-6 flex items-center justify-center rounded-full bg-primary/10"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-4 h-4 text-primary"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M9 16.17l-3.88-3.88L4 13.41l5 5 9-9-1.41-1.42z" />
+                </svg>
+              </div>
+              <p class="text-gray-700 font-medium">
+                Best tips about investment, crypto & more
+              </p>
+            </div>
+
+            <div
+              data-aos="zoom-in"
+              data-aos-delay="130"
+              class="flex items-center gap-3"
+            >
+              <div
+                class="w-6 h-6 flex items-center justify-center rounded-full bg-primary/10"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-4 h-4 text-primary"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M9 16.17l-3.88-3.88L4 13.41l5 5 9-9-1.41-1.42z" />
+                </svg>
+              </div>
+              <p class="text-gray-700 font-medium">
+                Access to our Facebook community
+              </p>
+            </div>
+          </div>
+
+          <!-- Input box -->
+          <div data-aos="zoom-in" data-aos-delay="150" class="mt-10">
+            <form
+              id="subscribe"
+              method="get"
+              action="./404.html"
+              class="bg-white rounded-xl shadow-md p-4 flex flex-col sm:flex-row items-center gap-3 max-w-lg w-full"
+            >
+              <input
+                type="email"
+                placeholder="Enter your email"
+                pattern=".+@gmail\.com$"
+                title="please enter gmail address ends with @gmail.com"
+                required
+                class="flex-1 w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/30 transition text-gray-700 outline-none"
+              />
+
+              <button
+                type="submit"
+                class="w-full sm:w-auto bg-primary hover:bg-blue-800 transition text-white px-6 py-3 rounded-lg font-semibold flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M2 3h20v18H2V3zm2 2v14h16V5H4zm8 8l8-5-8-5-8 5 8 5z"
+                  />
+                </svg>
+                Subscribe
+              </button>
+            </form>
+
+            <div class="text-primary mt-4 flex items-center gap-2 font-medium">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-5 h-5"
+                fill="#0355ff"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                />
+              </svg>
+              <p>Join the 30,000 users that receive our weekly newsletter</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Start Your Newsletter in Minutes -->
+    <section class="px-3 py-16 text-black overflow-hidden">
+      <div class="max-w-5xl mx-auto text-center space-y-6">
+        <h2 class="text-3xl md:text-4xl font-bold">
+          Start Your Newsletter in Minutes
+        </h2>
+        <p class="opacity-90 max-w-2xl mx-auto">
+          No coding required. Just sign up, write your first email, and start
+          building your audience.
+        </p>
+        <div class="mt-10">
+          <a
+            href="./404.html"
+            class="bg-white text-primary px-8 py-3 rounded-xl font-semibold hover:bg-gray-100 shadow"
+          >
+            Get Started Free
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="bg-gray-900 text-gray-300 overflow-hidden">
+      <div class="mx-auto px-3 py-8 grid sm:grid-cols-2 md:grid-cols-4 gap-12">
+        <!-- BRAND + TEXT -->
+        <div class="space-y-4">
+          <h2 class="text-2xl font-bold text-white">NewsletterPro</h2>
+          <p class="text-gray-400 text-sm md:text-lg">
+            Create, design, and send stunning email newsletters with powerful
+            automation and analytics.
+          </p>
+
+          <!-- Social Icons -->
+          <div class="flex gap-4 mt-4">
+            <a href="./404.html" class="text-gray-400 hover:text-white text-xl">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="./404.html" class="text-gray-400 hover:text-white text-xl">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="./404.html" class="text-gray-400 hover:text-white text-xl">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="./404.html" class="text-gray-400 hover:text-white text-xl">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- QUICK LINKS -->
+        <div>
+          <h3 class="text-white text-lg font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="../index.html" class="hover:text-white transition"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a href="./about.html" class="hover:text-white transition"
+                >About</a
+              >
+            </li>
+            <li>
+              <a href="./service.html" class="hover:text-white transition"
+                >Services</a
+              >
+            </li>
+            <li>
+              <a href="./blog.html" class="hover:text-white transition"
+                >Blogs</a
+              >
+            </li>
+            <li>
+              <a href="./contact.html" class="hover:text-white transition"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- SUPPORT -->
+        <div>
+          <h3 class="text-white text-lg font-semibold mb-4">Get In Touch</h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="./404.html" class="hover:text-white transition"
+                >+1-212-456-7890
+              </a>
+            </li>
+            <li>
+              <a href="./404.html" class="hover:text-white transition"
+                >contact@example.com</a
+              >
+            </li>
+            <li>
+              <a href="./404.html" class="hover:text-white transition"
+                >221b Elementary Avenue, NY</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- NEWSLETTER SIGNUP -->
+        <div>
+          <h3 class="text-white text-lg font-semibold mb-4">Subscribe</h3>
+          <p class="text-gray-400 text-sm md:text-lg mb-4">
+            Join 20,000+ marketers & creators. Get weekly insights in your
+            inbox.
+          </p>
+
+          <form
+            id="sub-form"
+            method="get"
+            action="./404.html"
+            class="flex items-center bg-gray-800 rounded-xl overflow-hidden"
+          >
+            <input
+              type="email"
+              placeholder="Enter your email"
+              pattern=".+@gmail\.com$"
+              title="Email must end with @gmail.com"
+              required
+              class="flex-1 bg-transparent px-4 py-3 text-gray-300 focus:outline-none"
+            />
+            <button
+              pattern=".+@gmail\.com$"
+              title="Email must end with @gmail.com"
+              required
+              type="submit"
+              class="px-5 py-3 bg-primary text-white font-semibold hover:opacity-90 transition"
+            >
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="overflow-hidden px-3">
+        <!-- Google Map -->
+        <div class="rounded-2xl w-full overflow-hidden shadow-lg mb-3">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3907.1616097152896!2d78.1739798!3d11.682956599999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babefef7fd970bb%3A0xe11aef1a71994f9!2sStackly!5e0!3m2!1sen!2sin!4v1755667813665!5m2!1sen!2sin"
+            width="100%"
+            height="250"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+
+      <div
+        class="flex items-center justify-center text-center border-t border-gray-300/30"
+      >
+        <div>
+          <p class="pt-4 text-lg pb-4">
+            Copyright 2025 © <a href="./404.html">Stackly</a>. All Right
+            Reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Aos Animation  -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+      integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- mobile menu script -->
+    <script>
+      // sub-form reset
+      const form = document.querySelector("#sub-form");
+      form.addEventListener("submit", () => {
+        form.reset();
+      });
+      // sub-form reset
+      const form2 = document.querySelector("#subscribe");
+      form2.addEventListener("submit", () => {
+        form2.reset();
+      });
+
+      // Aos Animation Init
+      AOS.init({
+        duration: 800,
+        delay: 200, // default delay for all elements
+        once: false,
+        mirror: true,
+      });
+
+      // Hamburger Menu Toggle
+      const hamburger = document.getElementById("hamburger");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const links = mobileMenu.querySelectorAll(".nav-link");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        mobileMenu.classList.toggle("open");
+      });
+
+      links.forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("active");
+          mobileMenu.classList.remove("open");
+        });
+      });
+
+      // Optional: close menu if clicked outside
+      window.addEventListener("click", (e) => {
+        if (!homeToggle.contains(e.target) && !homeMenu.contains(e.target)) {
+          homeMenu.classList.add("hidden");
+        }
+      });
+    </script>
+  </body>
+</html>
