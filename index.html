@@ -58,6 +58,11 @@
     <!-- Tailwind CSS  -->
     <link rel="stylesheet" href="./src/output.css" />
 
+    <!-- GSAP -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
+
     <!-- Navbar -->
     <style>
       body {
@@ -131,7 +136,7 @@
     <!-- Navbar  -->
     <header class="sticky top-0 z-40 w-full mx-auto">
       <div
-        class="flex items-center justify-between px-3 h-16 bg-white shadow-md shadow-secondary backdrop-blur-2xl"
+        class="flex items-center justify-between px-4 md:px-6 lg:px-12 h-16 bg-white shadow-md shadow-secondary backdrop-blur-2xl"
       >
         <!-- Logo -->
         <a class="" href="./index.html">
@@ -360,7 +365,7 @@
 
     <!-- Home -->
     <main
-      class="px-3 py-10 bg-linear-to-b from-primary/10 to-white overflow-hidden"
+      class="px-4 md:px-6 lg:px-12 py-10 bg-linear-to-b from-primary/10 to-white overflow-hidden"
     >
       <div class="mx-auto grid lg:grid-cols-2 gap-14 items-center">
         <div class="space-y-6">
@@ -372,9 +377,9 @@
             Unleashing The Potential Strategic Email Studio.
           </h1>
           <p data-aos="zoom-in" data-aos-delay="70" class="text-sm md:text-lg">
-            Welcome to Zaimail your trusted partner in unlocking full potential
-            of email marketing. At our agency, we specialize in crafting
-            data-driven and highly targeted email campaign.
+            Welcome to Stackmail your trusted partner in unlocking full
+            potential of email marketing. At our agency, we specialize in
+            crafting data-driven and highly targeted email campaign.
           </p>
 
           <a
@@ -403,8 +408,562 @@
       </div>
     </main>
 
+    <!-- grid -->
+    <section
+      class="stats-section px-4 md:px-6 lg:px-12 py-6 md:py-16 bg-white overflow-hidden"
+    >
+      <div class="container mx-auto">
+        <div class="stats-grid grid lg:grid-cols-3 gap-6 items-stretch">
+          <!-- LEFT COLUMN -->
+          <div class="stats-left grid grid-rows-2 gap-6">
+            <!-- Email Sent Card -->
+            <div class="card-email stat-card">
+              <div class="card-header">
+                <div class="icon-box">
+                  <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div>
+                  <h4>Email sent successfully</h4>
+                  <p>Delivered high-impact emails</p>
+                </div>
+              </div>
+
+              <div class="card-metric">
+                <span class="metric-number">576M+</span>
+                <span class="metric-label">Emails sent</span>
+              </div>
+            </div>
+
+            <!-- Active Users Card (Dark) -->
+            <div class="card-users stat-card dark-card">
+              <div class="users-header">
+                <div class="avatar-group">
+                  <img src="./Assets1/men1.webp" alt="prof1" />
+                  <img src="./Assets1/men4.webp" alt="prof2" />
+                  <img src="./Assets1/mentor3.webp" alt="prof3" />
+                  <img src="./Assets1/men3.webp" alt="prof4" />
+                </div>
+                <h4>964K+ Active Users</h4>
+              </div>
+              <p class="users-desc">
+                More than 900,000 people have using OneSecond and satisfied with
+                our platform.
+              </p>
+            </div>
+          </div>
+
+          <!-- CENTER COLUMN -->
+          <div class="stats-center stat-image">
+            <img src="./Assets1/home2-1.webp" alt="stats" />
+          </div>
+
+          <!-- RIGHT COLUMN -->
+          <div class="stats-right flex flex-col gap-6">
+            <!-- Client Served Card -->
+            <div class="card-client stat-card">
+              <div class="card-header">
+                <div class="icon-box">
+                  <i class="fa-solid fa-users"></i>
+                </div>
+                <div>
+                  <h4>Client business served</h4>
+                  <p>Worked with 1.5K+ industries</p>
+                </div>
+              </div>
+
+              <div class="card-metric">
+                <span class="metric-number">1,500+</span>
+                <span class="metric-label">Companies Served</span>
+              </div>
+            </div>
+
+            <!-- Video / Image Card -->
+            <div class="stats-video stat-image">
+              <img src="./Assets1/home3.webp" alt="img" />
+              <span class="brand-tag">StackMail</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .stat-card {
+        background: #f5f6ff;
+        border-radius: 18px;
+        padding: 24px;
+      }
+
+      .dark-card {
+        background: #0f172a;
+        color: white;
+      }
+
+      .card-header {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+      }
+
+      .icon-box {
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        background: #eef2ff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #4f46e5;
+      }
+
+      .card-header h4 {
+        font-weight: 600;
+        font-size: 20px;
+      }
+
+      .card-header p {
+        font-size: 15px;
+        color: #64748b;
+      }
+
+      .card-metric {
+        margin-top: 30px;
+      }
+
+      .metric-number {
+        font-size: 36px;
+        font-weight: 700;
+      }
+
+      .metric-label {
+        display: block;
+        font-size: 13px;
+        color: #64748b;
+      }
+
+      .avatar-group {
+        display: flex;
+      }
+
+      .avatar-group img {
+        width: 70px;
+        height: 70px;
+        border-radius: 999px;
+        border: 2px solid #0f172a;
+        margin-left: -10px;
+        object-fit: cover;
+        object-position: top;
+      }
+
+      .users-header h4 {
+        margin-top: 20px;
+        font-weight: 600;
+      }
+
+      .users-desc {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #cbd5f5;
+      }
+
+      .stat-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 18px;
+      }
+
+      .stats-video {
+        position: relative;
+      }
+
+      .brand-tag {
+        position: absolute;
+        bottom: 18px;
+        right: 18px;
+        color: white;
+        font-weight: 600;
+      }
+    </style>
+
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      gsap.from(".card-email", {
+        scrollTrigger: { trigger: ".card-email", start: "top 80%" },
+        y: 140,
+        opacity: 0,
+        duration: 1,
+      });
+
+      gsap.from(".card-users", {
+        scrollTrigger: { trigger: ".card-users", start: "top 80%" },
+        x: -140,
+        opacity: 0,
+        duration: 0.8,
+        delay: 0.4,
+      });
+
+      gsap.from(".stats-center", {
+        scrollTrigger: { trigger: ".stats-center", start: "top 75%" },
+        scale: 0.5,
+        y: 80,
+        opacity: 0,
+        duration: 1,
+      });
+
+      gsap.from(".card-client", {
+        scrollTrigger: { trigger: ".card-client", start: "top 80%" },
+        x: 140,
+        opacity: 0,
+        duration: 0.8,
+      });
+
+      gsap.from(".stats-video", {
+        scrollTrigger: { trigger: ".stats-video", start: "top 80%" },
+        scale: 0.95,
+        opacity: 0,
+        y: 80,
+        duration: 1,
+      });
+    </script>
+
+    <!-- HOW IT WORKS -->
+    <section
+      class="bg-white px-4 md:px-6 lg:px-12 py-8 lg:py-24 overflow-hidden"
+    >
+      <div class="mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-24">
+          <span
+            class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-indigo-50 text-indigo-500 text-sm font-medium how-tag"
+          >
+            HOW IT WORKS
+          </span>
+
+          <h2
+            class="text-3xl md:text-4xl lg:text-5xl font-semibold mt-6 how-title"
+          >
+            Maximize engagement with a smart
+          </h2>
+
+          <p
+            class="text-indigo-400 text-2xl md:text-3xl lg:text-4xl mt-2 how-subtitle"
+          >
+            email automation process
+          </p>
+        </div>
+
+        <!-- Step 01 -->
+        <div class="grid md:grid-cols-2 gap-16 items-center mb-20">
+          <div class="how-step-1-text">
+            <span
+              class="text-indigo-400 text-lg md:text-xl lg:text-2xl font-medium flex items-center gap-3"
+            >
+              01 <span class="w-12 h-px bg-indigo-300"></span>
+            </span>
+
+            <h3
+              class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold mt-4"
+            >
+              Set up your campaign
+            </h3>
+            <p class="text-gray-500 mt-4 max-w-md">
+              Easily configure your campaign settings, including sender details,
+              email scheduling, and automation triggers, for a smooth marketing
+              experience.
+            </p>
+
+            <button
+              class="mt-6 px-6 py-3 bg-indigo-500 text-white rounded-full shadow-md how-btn"
+            >
+              Watch Demo
+            </button>
+          </div>
+
+          <div
+            class="how-step-1-img bg-indigo-100 pl-5 pt-5 md:pl-10 md:pt-10 rounded-2xl overflow-x-hidden"
+          >
+            <img
+              alt="step1"
+              src="./Assets1/step1.webp"
+              class="rounded-tl-2xl w-full h-[300px] object-cover"
+            />
+          </div>
+        </div>
+
+        <!-- Step 02 -->
+        <div class="grid md:grid-cols-2 gap-16 items-center mb-20">
+          <div
+            class="how-step-2-img bg-indigo-100 pr-5 pt-5 md:pr-10 md:pt-10 rounded-2xl overflow-x-hidden"
+          >
+            <img
+              alt="step2"
+              src="./Assets1/step2.webp"
+              class="rounded-tr-2xl w-full h-[300px] object-cover"
+            />
+          </div>
+
+          <div class="how-step-2-text">
+            <span
+              class="text-indigo-400 text-lg md:text-xl lg:text-2xl font-medium flex items-center gap-3"
+            >
+              02 <span class="w-12 h-px bg-indigo-300"></span>
+            </span>
+
+            <h3
+              class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold mt-4"
+            >
+              Schedule & automate
+            </h3>
+            <p class="text-gray-500 mt-4 max-w-md">
+              Set up automated email sequences and scheduled sends to engage
+              your audience at the perfect time without manual effort.
+            </p>
+
+            <ul class="mt-6 space-y-3 text-gray-600 text-sm">
+              <li>✔ Bulk Email Scheduling</li>
+              <li>✔ AI-Powered Timing</li>
+              <li>✔ Hands-Free Marketing</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Step 03 -->
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+          <div class="how-step-3-text">
+            <span
+              class="text-indigo-400 text-lg md:text-xl lg:text-2xl font-medium flex items-center gap-3"
+            >
+              03 <span class="w-12 h-px bg-indigo-300"></span>
+            </span>
+
+            <h3
+              class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold mt-4"
+            >
+              Analyze performance
+            </h3>
+            <p class="text-gray-500 mt-4 max-w-md">
+              Gain deep insights into open rates, click-throughs, and engagement
+              metrics to refine your email marketing strategy.
+            </p>
+
+            <ul class="mt-6 space-y-3 text-gray-600 text-sm">
+              <li>✔ Visual Data Reports</li>
+              <li>✔ Conversion Rate Analysis</li>
+              <li>✔ Engagement Heatmaps</li>
+            </ul>
+          </div>
+
+          <div
+            class="how-step-3-img bg-indigo-100 pl-5 pt-5 md:pl-10 md:pt-10 rounded-2xl overflow-x-hidden"
+          >
+            <img
+              alt="step3"
+              src="./Assets1/step3.webp"
+              class="rounded-tl-2xl w-full h-[300px] object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      gsap.from(".how-tag", {
+        scrollTrigger: { trigger: ".how-tag", start: "top 85%" },
+        y: 20,
+        opacity: 0,
+        duration: 0.7,
+      });
+      gsap.from(".how-title", {
+        scrollTrigger: { trigger: ".how-title", start: "top 85%" },
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+      });
+      gsap.from(".how-subtitle", {
+        scrollTrigger: { trigger: ".how-subtitle", start: "top 85%" },
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+      });
+
+      gsap.from(".how-step-1-text", {
+        scrollTrigger: { trigger: ".how-step-1-text", start: "top 85%" },
+        x: -60,
+        opacity: 0,
+        duration: 0.9,
+      });
+      gsap.from(".how-step-1-img", {
+        scrollTrigger: { trigger: ".how-step-1-img", start: "top 85%" },
+        y: 160,
+        opacity: 0,
+        duration: 0.9,
+      });
+
+      gsap.from(".how-step-2-img", {
+        scrollTrigger: { trigger: ".how-step-2-img", start: "top 85%" },
+        y: 160,
+        opacity: 0,
+        duration: 0.9,
+      });
+      gsap.from(".how-step-2-text", {
+        scrollTrigger: { trigger: ".how-step-2-text", start: "top 85%" },
+        x: 60,
+        opacity: 0,
+        duration: 0.9,
+      });
+
+      gsap.from(".how-step-3-text", {
+        scrollTrigger: { trigger: ".how-step-3-text", start: "top 85%" },
+        x: -60,
+        opacity: 0,
+        duration: 0.9,
+      });
+      gsap.from(".how-step-3-img", {
+        scrollTrigger: { trigger: ".how-step-3-img", start: "top 85%" },
+        y: 160,
+        opacity: 0,
+        duration: 0.9,
+      });
+
+      gsap.from(".how-btn", {
+        scrollTrigger: { trigger: ".how-btn", start: "top 85%" },
+        scale: 0.8,
+        opacity: 0,
+        duration: 0.6,
+      });
+    </script>
+
+    <!-- principles SECTION -->
+    <section
+      class="principles-section px-4 md:px-6 lg:px-12 py-16 overflow-hidden"
+    >
+      <div
+        class="mx-auto bg-primary/5 rounded-4xl grid grid-cols-1 lg:grid-cols-2 gap-12 px-4 py-6 md:p-10"
+      >
+        <!-- LEFT CONTENT -->
+        <div class="principles-content space-y-3">
+          <!-- HEADER -->
+          <div class="principles-header space-y-4">
+            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900">
+              Guided by principles, driven by results
+            </h2>
+            <p class="text-gray-600 max-w-xl">
+              Our core values guide every campaign we create, ensuring
+              transparency, innovation, and dedication to lasting client
+              success.
+            </p>
+          </div>
+
+          <!-- CARDS -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-3">
+            <!-- CARD 1 -->
+            <div class="principle-card">
+              <div
+                class="icon-circle size-10 rounded-full bg-indigo-200 flex items-center justify-center text-xl"
+              >
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <h3>Integrity First</h3>
+              <p>
+                We build trust through honest communication, transparent
+                practices, and strategies.
+              </p>
+            </div>
+
+            <!-- CARD 2
+                <div class="principle-card">
+                  <div class="icon-circle size-10 rounded-full bg-indigo-200 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-rocket "></i>
+                  </div>
+                  <h3>Innovation Driven</h3>
+                  <p>
+                    New technologies and creative ideas to deliver impactful,
+                    future campaigns.
+                  </p>
+                </div> -->
+
+            <!-- CARD 3 -->
+            <div class="principle-card">
+              <div
+                class="icon-circle size-10 rounded-full bg-indigo-200 flex items-center justify-center text-xl"
+              >
+                <i class="fa-solid fa-chart-line"></i>
+              </div>
+              <h3>Client Success</h3>
+              <p>
+                Your growth is our priority we focus on measurable results and
+                long-term partnerships.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT IMAGE -->
+        <div class="principles-image">
+          <img
+            src="./Assets1/service1.webp"
+            alt="Team working"
+            class="rounded-2xl w-full h-[400px] sm:h-full object-cover"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- GSAP SCRIPT -->
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".principles-section",
+          start: "top 75%",
+        },
+        defaults: {
+          ease: "power4.out",
+        },
+      });
+
+      tl.from(".principles-header h2", {
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+      })
+        .from(
+          ".principles-header p",
+          {
+            y: 30,
+            opacity: 0,
+            duration: 0.7,
+          },
+          "-=0.4"
+        )
+        .from(
+          ".principle-card",
+          {
+            y: 50,
+            opacity: 0,
+            stagger: 0.15,
+            duration: 0.8,
+          },
+          "-=0.3"
+        )
+        .from(
+          ".principles-image img",
+          {
+            scale: 0.8,
+            opacity: 0,
+            duration: 1,
+          },
+          "-=0.6"
+        );
+    </script>
+
     <!-- About Our Newsletter -->
-    <section class="px-3 py-10 overflow-hidden">
+    <section class="md:px-6 lg:px-12 py-10 overflow-hidden">
       <h1
         data-aos="fade-right"
         data-aos-delay="50"
@@ -517,8 +1076,168 @@
       </div>
     </section>
 
+    <!-- StackMail FEATURES -->
+    <section
+      class="md:bg-[#f7f9fc] py-6 md:py-24 md:px-6 lg:px-12 px-4 overflow-hidden"
+    >
+      <div class="mx-auto">
+        <!-- Header -->
+        <div class="flex flex-wrap gap-6 items-center justify-between mb-16">
+          <div>
+            <span
+              class="inline-block bg-[#eef2ff] text-[#6366f1] px-4 py-1 rounded-full text-sm font-medium tracking-wide header-tag"
+            >
+              STACKMail FEATURES
+            </span>
+
+            <h2
+              class="text-3xl md:text-4xl lg:text-5xl font-bold mt-6 leading-tight header-title"
+            >
+              Supercharge your email marketing
+            </h2>
+
+            <p class="text-indigo-500 text-xl mt-2 header-subtitle">
+              with smart features
+            </p>
+          </div>
+
+          <button
+            class="bg-white border border-gray-200 px-6 py-3 rounded-full shadow-sm text-sm font-medium header-btn"
+          >
+            More Features
+          </button>
+        </div>
+
+        <!-- Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <!-- Card 1 -->
+          <div
+            class="bg-white group rounded-2xl shadow-lg card-one relative overflow-hidden inset-0"
+          >
+            <div
+              class="absolute tranform -translate-y-[120%] group-hover:translate-y-0 bg-blue-200 w-full h-full transition duration-700 ease-in z-[-1]"
+            ></div>
+            <div class="px-3 py-6 md:p-8">
+              <h3 class="text-xl font-semibold mb-2">Seamless integration</h3>
+              <p class="text-gray-600 leading-relaxed text-sm mb-6">
+                Connect with your CRM, eCommerce platforms, and other marketing
+                tools to streamline workflows and enhance efficiency.
+              </p>
+              <img
+                src="./Assets1/service1.webp"
+                alt="card1"
+                class="rounded-xl object-cover h-80 w-full"
+              />
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="bg-white rounded-2xl px-3 py-6 md:p-8 shadow-lg card-two">
+            <img
+              src="./Assets1/step3.webp"
+              alt="card2"
+              class="rounded-xl mb-6 object-cover h-80 w-full"
+            />
+            <h3 class="text-xl font-semibold mb-2">Advanced A/B testing</h3>
+            <p class="text-gray-600 leading-relaxed text-sm">
+              Test different email and subject lines to determine which version
+              of your email drives the highest open rates and conversions.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="bg-white rounded-2xl px-3 py-6 md:p-8 shadow-lg card-three"
+          >
+            <img
+              src="./Assets1/home2.webp"
+              alt="card3"
+              class="rounded-xl mb-6 object-cover h-80 w-full"
+            />
+            <h3 class="text-xl font-semibold mb-2">Automated campaigns</h3>
+            <p class="text-gray-600 leading-relaxed text-sm">
+              Set up email sequences that automatically send based on user
+              actions, saving you time and increasing engagement.
+            </p>
+          </div>
+
+          <!-- Card 4 -->
+          <div
+            class="bg-white rounded-2xl px-3 py-6 md:p-8 shadow-lg card-four"
+          >
+            <h3 class="text-xl font-semibold mb-2">Real-time analytics</h3>
+            <p class="text-gray-600 leading-relaxed text-sm mb-6">
+              Get detailed insights on email performance, including open rates,
+              clicks, and conversions, to improve future campaigns.
+            </p>
+            <img
+              src="./Assets1/subscribe.webp"
+              alt="card4"
+              class="rounded-xl object-cover h-80 w-full"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Header animations
+      gsap.from(".header-tag", {
+        scrollTrigger: { trigger: ".header-tag", start: "top 85%" },
+        y: 20,
+        opacity: 0,
+        duration: 0.8,
+      });
+      gsap.from(".header-title", {
+        scrollTrigger: { trigger: ".header-title", start: "top 85%" },
+        y: 30,
+        opacity: 0,
+        duration: 0.9,
+      });
+      gsap.from(".header-subtitle", {
+        scrollTrigger: { trigger: ".header-subtitle", start: "top 85%" },
+        y: 25,
+        opacity: 0,
+        duration: 0.8,
+      });
+      gsap.from(".header-btn", {
+        scrollTrigger: { trigger: ".header-btn", start: "top 85%" },
+        y: 20,
+        opacity: 0,
+        duration: 0.8,
+      });
+
+      // Cards
+      gsap.from(".card-one", {
+        scrollTrigger: { trigger: ".card-one", start: "top 90%" },
+        y: 60,
+        opacity: 0,
+        duration: 0.9,
+      });
+      gsap.from(".card-two", {
+        scrollTrigger: { trigger: ".card-two", start: "top 90%" },
+        y: 60,
+        opacity: 0,
+        duration: 1.8,
+      });
+      gsap.from(".card-three", {
+        scrollTrigger: { trigger: ".card-three", start: "top 90%" },
+        y: 60,
+        opacity: 0,
+        duration: 0.9,
+      });
+      gsap.from(".card-four", {
+        scrollTrigger: { trigger: ".card-four", start: "top 90%" },
+        y: 60,
+        opacity: 0,
+        duration: 1.8,
+      });
+    </script>
+
     <!-- Past Newsletters Section -->
-    <section class="py-16 px-3 bg-gray-50 overflow-hidden">
+    <section class="py-16 px-4 md:px-6 lg:px-12 bg-gray-50 overflow-hidden">
       <div class="mx-auto">
         <!-- Title -->
         <div class="text-center mb-12">
@@ -758,7 +1477,7 @@
     </div>
 
     <!-- scroll section -->
-    <section class="px-3 py-6 overflow-hidden">
+    <section class="px-4 md:px-6 lg:px-12 py-6 overflow-hidden">
       <h1
         data-aos="zoom-in"
         data-aos-delay="90"
@@ -794,7 +1513,7 @@
     </section>
 
     <!-- FEATURES SECTION -->
-    <section class="px-3 py-6 overflow-hidden">
+    <section class="px-4 py-6 overflow-hidden">
       <div class="w-full bg-white">
         <div class="mx-auto">
           <!-- Heading -->
@@ -969,154 +1688,157 @@
       </div>
     </section>
 
-    <!-- Meet Our Editorial Team -->
-    <section class="py-8 md:py-16 bg-gray-50 px-3 overflow-hidden">
-      <div class="mx-auto">
-        <div class="text-center mb-12">
-          <h2
-            data-aos="zoom-in-right"
-            data-aos-delay="70"
-            class="text-3xl md:text-4xl font-bold text-gray-900"
-          >
-            Meet Our Team
-          </h2>
-          <p
-            data-aos="zoom-in-left"
-            data-aos-delay="70"
-            class="text-gray-600 max-w-2xl mx-auto mt-3"
-          >
-            Our talented members work behind the scenes to build seamless
-            newsletter experiences that help brands grow.
-          </p>
+    <!-- testimonial -->
+    <section
+      class="reviews-section bg-[#fbfbfe] px-4 md:px-6 lg:px-12 py-24 overflow-hidden"
+    >
+      <div class="container mx-auto">
+        <!-- Header -->
+        <div
+          class="reviews-header flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 mb-16"
+        >
+          <div class="reviews-heading">
+            <span class="reviews-badge">
+              <i class="fa-solid fa-asterisk"></i> USER REVIEWS
+            </span>
+
+            <h2 class="reviews-title">
+              See how OneSecond transforms<br />
+              email marketing for <span>our users</span>
+            </h2>
+          </div>
+
+          <a href="./Home1/404.html" class="reviews-btn"> See All Reviews </a>
         </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
-          <div data-aos="zoom-in" data-aos-delay="50">
-            <div
-              class="bg-white shadow-lg rounded-xl p-6 text-center hover:-translate-y-2 transition duration-500 ease-out"
-            >
-              <img
-                src="./Assets1/men1.webp"
-                alt="user1"
-                class="w-28 h-28 rounded-full mx-auto object-cover object-top"
-              />
-              <h3 class="text-xl font-semibold mt-4">Aarav Sharma</h3>
-              <p class="text-primary text-sm font-medium mt-1">Founder & CEO</p>
-              <p class="text-gray-600 text-sm mt-3">
-                Leading the vision, strategy, and innovation behind our
-                newsletter systems.
-              </p>
-              <div class="flex justify-center mt-4 space-x-4 text-gray-500">
-                <a href="./Home1/404.html"
-                  ><i class="fab fa-linkedin text-xl hover:text-primary"></i
-                ></a>
-                <i class="fab fa-twitter text-xl hover:text-primary"></i>
+        <!-- Cards Grid -->
+        <div class="reviews-grid grid lg:grid-cols-3 gap-6">
+          <!-- CARD 1 -->
+          <div class="review-card trigger-card-1">
+            <div class="review-top">
+              <span class="brand">NEXUZ</span>
+              <span class="date">28 FEB 2025</span>
+            </div>
 
-                <a href="./Home1/404.html"
-                  ><i class="fab fa-linkedin text-xl hover:text-primary"></i
-                ></a>
-                <a href="./Home1/404.html">
-                  <i class="fab fa-facebook text-xl hover:text-primary"></i>
-                </a>
+            <p class="review-text">
+              StackMail transformed our email marketing strategy. Our open rates
+              have doubled, and customer engagement is at an all-time high.
+            </p>
+
+            <div class="review-user">
+              <img src="./Assets1/mentor2.webp" alt="prof1" />
+              <div>
+                <h4>James Carter</h4>
+                <p>Marketing Manager</p>
               </div>
             </div>
           </div>
 
-          <div data-aos="zoom-in" data-aos-delay="70">
-            <div
-              class="bg-white shadow-lg rounded-xl p-6 text-center hover:-translate-y-2 transition duration-500 ease-out"
-            >
-              <img
-                src="./Assets1/men2.webp"
-                alt="user2"
-                class="w-28 h-28 object-cover object-top rounded-full mx-auto"
-              />
-              <h3 class="text-xl font-semibold mt-4">Deva Patel</h3>
-              <p class="text-primary text-sm font-medium mt-1">
-                Lead UI/UX Designer
-              </p>
-              <p class="text-gray-600 text-sm mt-3">
-                Designs smooth and appealing newsletter templates and user
-                experiences.
-              </p>
-              <div class="flex justify-center mt-4 space-x-4 text-gray-500">
-                <a href="./Home1/404.html"
-                  ><i class="fab fa-linkedin text-xl hover:text-primary"></i
-                ></a>
-                <i class="fab fa-twitter text-xl hover:text-primary"></i>
+          <!-- CARD 2 (CENTER FEATURED) -->
+          <div class="review-card featured trigger-card-2">
+            <div class="review-top">
+              <span class="brand">SPOTLIGHT</span>
+              <span class="date">18 FEB 2025</span>
+            </div>
 
-                <a href="./Home1/404.html"
-                  ><i class="fab fa-linkedin text-xl hover:text-primary"></i
-                ></a>
-                <a href="./Home1/404.html">
-                  <i class="fab fa-facebook text-xl hover:text-primary"></i>
-                </a>
+            <p class="review-text">
+              StackMail has been a lifesaver for our company. Their analytics
+              give us deep insights into customer.Their automation tools make
+              everything so much easier.
+            </p>
+
+            <div class="review-user">
+              <img src="./Assets1/men1.webp" alt="prof2" />
+              <div>
+                <h4>Mark Davis</h4>
+                <p>CRM Specialist</p>
               </div>
             </div>
           </div>
 
-          <div data-aos="zoom-in" data-aos-delay="90">
-            <div
-              class="bg-white shadow-lg rounded-xl p-6 text-center hover:-translate-y-2 transition duration-500 ease-out"
-            >
-              <img
-                src="./Assets1/men3.webp"
-                alt="user3"
-                class="w-28 h-28 object-cover object-top rounded-full mx-auto"
-              />
-              <h3 class="text-xl font-semibold mt-4">Rohan Verma</h3>
-              <p class="text-primary text-sm font-medium mt-1">
-                Head of Content
-              </p>
-              <p class="text-gray-600 text-sm mt-3">
-                Creates engaging newsletter content that improves user
-                retention.
-              </p>
-              <div class="flex justify-center mt-4 space-x-4 text-gray-500">
-                <a href="./Home1/404.html"
-                  ><i class="fab fa-linkedin text-xl hover:text-primary"></i
-                ></a>
-                <i class="fab fa-twitter text-xl hover:text-primary"></i>
+          <!-- CARD 3 -->
+          <div class="review-card trigger-card-3">
+            <div class="review-top">
+              <span class="brand">SHIELDGUARD</span>
+              <span class="date">21 JAN 2025</span>
+            </div>
 
-                <a href="./Home1/404.html"
-                  ><i class="fab fa-linkedin text-xl hover:text-primary"></i
-                ></a>
-                <a href="./Home1/404.html">
-                  <i class="fab fa-facebook text-xl hover:text-primary"></i>
-                </a>
+            <p class="review-text">
+              OneSecond makes email marketing effortless from start to finish!
+              The A/B testing feature helped us optimize subject lines, leading
+              to significantly higher open rates.
+            </p>
+
+            <div class="review-user">
+              <img src="./Assets1/men2.webp" alt="prof3" />
+              <div>
+                <h4>Olivia Brown</h4>
+                <p>Growth Marketer</p>
               </div>
             </div>
           </div>
 
-          <div data-aos="zoom-in-right" data-aos-delay="110">
-            <div
-              class="bg-white shadow-lg rounded-xl p-6 text-center hover:-translate-y-2 transition duration-500 ease-out"
-            >
-              <img
-                src="./Assets1/men4.webp"
-                alt="user4"
-                class="w-28 h-28 object-cover object-top rounded-full mx-auto"
-              />
-              <h3 class="text-xl font-semibold mt-4">Sneha Kapoor</h3>
-              <p class="text-primary text-sm font-medium mt-1">
-                Marketing Manager
-              </p>
-              <p class="text-gray-600 text-sm mt-3">
-                Drives user engagement, analytics, and newsletter growth
-                campaigns.
-              </p>
-              <div class="flex justify-center mt-4 space-x-4 text-gray-500">
-                <a href="./Home1/404.html"
-                  ><i class="fab fa-linkedin text-xl hover:text-primary"></i
-                ></a>
-                <i class="fab fa-twitter text-xl hover:text-primary"></i>
+          <!-- CARD 4 -->
+          <div class="review-card trigger-card-4">
+            <div class="review-top">
+              <span class="brand">TECHSEN</span>
+              <span class="date">04 JAN 2025</span>
+            </div>
 
-                <a href="./Home1/404.html"
-                  ><i class="fab fa-linkedin text-xl hover:text-primary"></i
-                ></a>
-                <a href="./Home1/404.html">
-                  <i class="fab fa-facebook text-xl hover:text-primary"></i>
-                </a>
+            <p class="review-text">
+              I used to struggle with email campaigns, but OneSecond simplified
+              everything. My sales have significantly increased since using it!
+            </p>
+
+            <div class="review-user">
+              <img src="./Assets1/mentor3.webp" alt="prof4" />
+              <div>
+                <h4>Sarah Collins</h4>
+                <p>Business Owner</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 5 -->
+          <div class="review-card trigger-card-5">
+            <div class="review-top">
+              <span class="brand">GLOWINX</span>
+              <span class="date">31 DEC 2024</span>
+            </div>
+
+            <p class="review-text">
+              With OneSecond, our email campaigns feel more personalized and
+              effective. We've seen a noticeable increase in responses and
+              conversions.
+            </p>
+
+            <div class="review-user">
+              <img src="./Assets1/mentor4.webp" alt="prof5" />
+              <div>
+                <h4>Michael Robert</h4>
+                <p>Product Manager</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 6 -->
+          <div class="review-card trigger-card-6">
+            <div class="review-top">
+              <span class="brand">DOLOX</span>
+              <span class="date">16 DEC 2024</span>
+            </div>
+
+            <p class="review-text">
+              Our newsletter engagement has skyrocketed thanks to OneSecond.
+              Their easy-to-use platform and smart segmentation features are
+              outstanding.
+            </p>
+
+            <div class="review-user">
+              <img src="./Assets1/women2.webp" alt="prof6" />
+              <div>
+                <h4>Emi Jackson</h4>
+                <p>Content Strategist</p>
               </div>
             </div>
           </div>
@@ -1124,8 +1846,369 @@
       </div>
     </section>
 
+    <style>
+      .reviews-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #eef2ff;
+        color: #4f46e5;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 6px 14px;
+        border-radius: 999px;
+        margin-bottom: 18px;
+      }
+
+      .reviews-title {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 800;
+        color: #020617;
+        line-height: 1.15;
+      }
+
+      .reviews-title span {
+        color: #94a3f4;
+      }
+
+      .reviews-btn {
+        padding: 12px 22px;
+        border-radius: 999px;
+        border: 1px solid #c7d2fe;
+        color: #4f46e5;
+        font-weight: 500;
+        width: fit-content;
+        transition: all 0.3s ease;
+      }
+
+      .reviews-btn:hover {
+        background: #eef2ff;
+      }
+
+      .review-card {
+        background: white;
+        border-radius: 18px;
+        padding: 24px;
+        border: 1px solid #e5e7eb;
+      }
+
+      .review-card.featured {
+        border-color: #c7d2fe;
+      }
+
+      .review-top {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        color: #94a3b8;
+        margin-bottom: 14px;
+      }
+
+      .brand {
+        font-weight: 600;
+        letter-spacing: 0.08em;
+      }
+
+      .review-text {
+        font-size: 14px;
+        line-height: 1.6;
+        color: #334155;
+        margin-bottom: 22px;
+      }
+
+      .review-user {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .review-user img {
+        width: 42px;
+        height: 42px;
+        object-fit: cover;
+        object-position: top;
+        border-radius: 999px;
+      }
+
+      .review-user h4 {
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .review-user p {
+        font-size: 12px;
+        color: #64748b;
+      }
+    </style>
+
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      gsap.from(".reviews-header", {
+        scrollTrigger: { trigger: ".reviews-header", start: "top 80%" },
+        y: 40,
+        opacity: 0,
+        duration: 1,
+      });
+
+      [
+        ".trigger-card-1",
+        ".trigger-card-2",
+        ".trigger-card-3",
+        ".trigger-card-4",
+        ".trigger-card-5",
+        ".trigger-card-6",
+      ].forEach((cls, i) => {
+        gsap.from(cls, {
+          scrollTrigger: { trigger: cls, start: "top 85%" },
+          y: 50,
+          opacity: 0,
+          duration: 0.9,
+          delay: i * 0.2,
+        });
+      });
+    </script>
+
+    <!-- faq  -->
+    <section class="bg-[#fafbff] px-4 md:px-6 lg:px-12 py-24 overflow-hidden">
+      <div class="mx-auto">
+        <!-- Header -->
+        <div class="flex flex-wrap gap-6 justify-between items-start mb-20">
+          <div>
+            <span
+              class="inline-flex items-center gap-2 bg-indigo-50 text-indigo-500 px-4 py-1 rounded-full text-sm font-medium faq-tag"
+            >
+              FIND YOUR SOLUTIONS
+            </span>
+
+            <h2
+              class="text-3xl md:text-4xl lg:text-5xl font-semibold mt-6 faq-title"
+            >
+              Your guide to understanding
+            </h2>
+
+            <p
+              class="text-indigo-300 text-2xl md:text-3xl lg:text-4xl mt-2 faq-subtitle"
+            >
+              OneSecond's capabilities
+            </p>
+          </div>
+
+          <a
+            href="./Home1/404.html"
+            class="w-fit text-center px-6 py-3 border border-indigo-300 rounded-full text-indigo-500 font-medium faq-btn"
+          >
+            See All Questions
+          </a>
+        </div>
+
+        <!-- FAQ Columns -->
+        <div class="flex gap-8">
+          <!-- Left Column -->
+          <div class="flex-1 space-y-4">
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>Do you provide email list management?</span>
+                <span class="faq-icon">–</span>
+              </button>
+              <div class="faq-content">
+                <div class="faq-answer">
+                  Yes, you can segment your contacts, remove duplicates, and
+                  manage unsubscribes easily.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>Can I create custom email templates?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-content">
+                <div class="faq-answer">
+                  Yes, you can fully customize templates using our builder or
+                  upload your own HTML.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>Does OneSecond support automation?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-content">
+                <div class="faq-answer">
+                  Yes, advanced automation workflows are available for all
+                  plans.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>How do I track email performance?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-content">
+                <div class="faq-answer">
+                  Track open rates, click-throughs, and conversions in real
+                  time.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>Can I integrate OneSecond with other tools?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-content">
+                <div class="faq-answer">
+                  Yes, OneSecond integrates with CRMs, eCommerce, and automation
+                  tools.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column -->
+          <div class="flex-1 space-y-4">
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>Do you offer email design services?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-content">
+                <div class="faq-answer">
+                  Yes, our design team creates high-converting email templates.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>Does OneSecond help avoid spam filters?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-content">
+                <div class="faq-answer">
+                  We optimize deliverability with advanced anti-spam tools.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>Can I schedule emails in advance?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-content">
+                <div class="faq-answer">
+                  Schedule campaigns weeks or months ahead.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>What payment plans are available?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-content">
+                <div class="faq-answer">
+                  Monthly, annual, and enterprise plans are available.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>Can I send transactional emails?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-content">
+                <div class="faq-answer">
+                  Yes, transactional emails are fully supported.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .faq-item {
+        background: #f3f5ff;
+        border-radius: 14px;
+        overflow: hidden;
+      }
+
+      .faq-question {
+        width: 100%;
+        padding: 20px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 500;
+      }
+
+      .faq-content {
+        overflow: hidden;
+      }
+
+      .faq-answer {
+        padding: 0 24px 16px;
+        color: #555;
+      }
+    </style>
+
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      let activeItem = document.querySelector(".faq-item");
+
+      document.querySelectorAll(".faq-item").forEach((item) => {
+        const btn = item.querySelector(".faq-question");
+        const content = item.querySelector(".faq-content");
+        const icon = item.querySelector(".faq-icon");
+
+        if (item !== activeItem) gsap.set(content, { height: 0 });
+
+        btn.addEventListener("click", () => {
+          if (item === activeItem) return;
+
+          closeItem(activeItem);
+          openItem(item);
+          activeItem = item;
+        });
+
+        function openItem(el) {
+          const c = el.querySelector(".faq-content");
+          const i = el.querySelector(".faq-icon");
+
+          gsap.to(c, {
+            height: c.scrollHeight,
+            duration: 0.45,
+            ease: "power2.out",
+          });
+          i.textContent = "–";
+        }
+
+        function closeItem(el) {
+          if (!el) return;
+          const c = el.querySelector(".faq-content");
+          const i = el.querySelector(".faq-icon");
+
+          gsap.to(c, { height: 0, duration: 0.35, ease: "power2.inOut" });
+          i.textContent = "+";
+        }
+      });
+    </script>
+
     <!-- Start Your Newsletter in Minutes -->
-    <section class="px-3 py-16 text-black overflow-hidden">
+    <section class="px-3 md:px-6 lg:px-12 py-16 text-black overflow-hidden">
       <div class="max-w-5xl mx-auto text-center space-y-6">
         <h2 class="text-3xl md:text-4xl font-bold">
           Start Your Newsletter in Minutes
@@ -1147,7 +2230,9 @@
 
     <!-- footer -->
     <footer class="bg-gray-900 text-gray-300 overflow-hidden">
-      <div class="mx-auto px-3 py-8 grid sm:grid-cols-2 md:grid-cols-4 gap-12">
+      <div
+        class="mx-auto px-4 md:px-6 lg:px-12 py-8 grid sm:grid-cols-2 md:grid-cols-4 gap-12"
+      >
         <!-- BRAND + TEXT -->
         <div class="space-y-4">
           <h2 class="text-2xl font-bold text-white">NewsletterPro</h2>
@@ -1274,7 +2359,7 @@
         </div>
       </div>
 
-      <div class="overflow-hidden px-3">
+      <div class="overflow-hidden px-4 md:px-6 lg:px-12">
         <!-- Google Map -->
         <div class="rounded-2xl w-full overflow-hidden shadow-lg mb-3">
           <iframe

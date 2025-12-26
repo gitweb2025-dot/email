@@ -1,7 +1,5 @@
 @import "tailwindcss";
 
-@import "tailwindcss";
-
 @theme {
   --font-primary: "EB Garamond", serif;
   --font-secondary: "Rajdhani", sans-serif;
