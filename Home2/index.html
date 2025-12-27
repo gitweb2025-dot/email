@@ -58,6 +58,13 @@
     <!-- Tailwind CSS  -->
     <link rel="stylesheet" href="../src/output.css" />
 
+    <!-- GSAP -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
+
+    <script src="https://unpkg.com/gsap@3/dist/SplitText.min.js"></script>
+
     <!-- Navbar -->
     <style>
       body {
@@ -110,7 +117,7 @@
     <!-- Navbar  -->
     <header class="sticky top-0 z-40 w-full mx-auto">
       <div
-        class="flex items-center justify-between px-3 h-16 bg-white shadow-md shadow-secondary backdrop-blur-2xl"
+        class="flex items-center justify-between px-4 md:px-8 lg:px-12 h-16 bg-white shadow-md shadow-secondary backdrop-blur-2xl"
       >
         <!-- Logo -->
         <a class="" href="./index.html">
@@ -329,26 +336,28 @@
     </header>
 
     <!--HERO SECTION-->
-    <main class="relative bg-white px-3 py-20 overflow-hidden">
+    <main class="main-section relative bg-white px-4 md:px-8 lg:px-12 py-10 lg:py-20 overflow-hidden">
       <!-- Diagonal Background -->
-      <div class="absolute inset-0 bg-primary/5 -skew-y-3 origin-top"></div>
+      <div
+        class="bg-diagonal absolute inset-0 bg-primary/5 -skew-y-3 origin-top"
+      ></div>
 
       <div class="relative mx-auto grid lg:grid-cols-2 gap-14 items-center">
         <!-- Left Image Block -->
-        <div data-aos="zoom-in" data-aos-delay="70" class="relative">
+        <div class="left-image-wrap relative">
           <div
-            class="absolute -top-8 -left-8 w-40 h-40 bg-primary opacity-20 rounded-3xl blur-2xl"
+            class="glow-box absolute -top-8 -left-8 w-40 h-40 bg-primary opacity-20 rounded-3xl blur-2xl"
           ></div>
 
           <img
             src="../Assets1/home2.webp"
             alt="home2"
-            class="rounded-3xl shadow-2xl w-full h-[380px] object-cover object-left"
+            class="main-image rounded-3xl shadow-2xl w-full h-[380px] object-cover object-left"
           />
 
           <!-- Floating Card -->
           <div
-            class="absolute -bottom-6 -right-1.5 bg-white shadow-xl rounded-xl p-5 w-56"
+            class="floating-card absolute -bottom-6 -right-1.5 bg-white shadow-xl rounded-xl p-5 w-56"
           >
             <p class="text-sm text-gray-600">Trusted by 25k+ customers</p>
             <p class="font-semibold text-gray-900 mt-1">
@@ -358,50 +367,40 @@
         </div>
 
         <!-- Right Content -->
-        <div class="space-y-6">
+        <div class="right-content space-y-6">
           <h2
-            data-aos="zoom-in-left"
-            data-aos-delay="70"
-            class="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight text-gray-900"
+            class="heading-animate text-2xl sm:text-3xl md:text-4xl font-bold leading-tight text-gray-900"
           >
             We Build Stunning Experiences
             <span class="text-primary">That Inspire Actions</span>
           </h2>
 
-          <p
-            data-aos="zoom-in-left"
-            data-aos-delay="90"
-            class="text-gray-600 text-lg leading-relaxed"
-          >
+          <p class="text-animate text-gray-600 text-lg leading-relaxed">
             Creating digital products shouldn't be boring. We craft bold and
             modern experiences using design psychology, behavioral science and
             world-class UI.
           </p>
 
-          <div class="grid grid-cols-2 gap-6 pt-4">
+          <div class="stats-grid grid grid-cols-2 gap-6 pt-4">
             <div
-              data-aos="zoom-in-left"
-              data-aos-delay="110"
-              class="p-5 rounded-2xl bg-primary/10 border border-primary/20 shadow-lg"
+              class="stat-card-left p-5 rounded-2xl bg-primary/10 border border-primary/20 shadow-lg"
             >
               <h3 class="text-3xl font-bold text-primary">10+</h3>
               <p class="text-gray-600 text-sm">Years of Experience</p>
             </div>
 
             <div
-              data-aos="zoom-in-left"
-              data-aos-delay="130"
-              class="p-5 rounded-2xl bg-white shadow-lg border border-gray-100"
+              class="stat-card-right p-5 rounded-2xl bg-white shadow-lg border border-gray-100"
             >
               <h3 class="text-3xl font-bold text-gray-900">480+</h3>
               <p class="text-gray-600 text-sm">Completed Projects</p>
             </div>
           </div>
 
-          <div data-aos="zoom-in" data-aos-delay="70" class="mt-10">
+          <div class="mt-10 cta-button">
             <a
               href="./subscribe.html"
-              class="px-8 py-4 bg-primary text-white rounded-xl shadow-lg hover:bg-blue-700 duration-200"
+              class="cta-button px-8 py-4 bg-primary text-white rounded-xl shadow-lg hover:bg-blue-700 duration-200"
             >
               Subscribe Now
             </a>
@@ -410,159 +409,987 @@
       </div>
     </main>
 
-    <!-- How Our Newsletter Works -->
-    <section class="py-10 md:py-20 px-3 bg-gray-50 overflow-hidden">
-      <div class="mx-auto grid lg:grid-cols-2 gap-12 items-center">
-        <!-- Steps -->
-        <div class="space-y-10">
-          <h2
-            data-aos="zoom-in-right"
-            data-aos-delay="50"
-            class="text-2xl sm:text-3xl font-bold"
-          >
-            How Our Newsletter Works
-          </h2>
-          <p
-            data-aos="zoom-in-right"
-            data-aos-delay="70"
-            class="text-gray-600 max-w-md"
-          >
-            Simple, powerful & designed for your growth. Lorem ipsum dolor sit
-            amet consectetur adipisicing elit. Iusto nemo illo ab, ea hic aut.
-          </p>
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
 
-          <div class="space-y-8">
-            <div
-              data-aos="zoom-in-right"
-              data-aos-delay="90"
-              class="flex gap-4"
+      /* ===== Main Section Trigger ===== */
+      const sectionTrigger = {
+        trigger: ".main-section",
+        start: "top 75%",
+      };
+
+      /* Background diagonal */
+      gsap.from(".bg-diagonal", {
+        scaleY: 0,
+        transformOrigin: "top",
+        duration: 3,
+        ease: "power4.out",
+        scrollTrigger: sectionTrigger,
+      });
+
+      /* Glow box */
+      gsap.from(".glow-box", {
+        opacity: 0,
+        scale: 0.6,
+        duration: 1.2,
+        ease: "power3.out",
+        scrollTrigger: sectionTrigger,
+      });
+
+      /* Main image – fade LEFT */
+      gsap.from(".main-image", {
+        x: -120,
+        opacity: 0,
+        duration: 1.4,
+        ease: "power4.out",
+        scrollTrigger: sectionTrigger,
+      });
+
+      /* Floating card – fade UP */
+      gsap.from(".floating-card", {
+        y: 80,
+        opacity: 0,
+        delay: 0.2,
+        duration: 1.2,
+        ease: "power4.out",
+        scrollTrigger: sectionTrigger,
+      });
+
+      /* Heading – fade RIGHT */
+      gsap.from(".heading-animate", {
+        x: 120,
+        opacity: 0,
+        duration: 1.4,
+        ease: "power4.out",
+        scrollTrigger: sectionTrigger,
+      });
+
+      gsap.registerPlugin(SplitText);
+
+      const split = new SplitText(".text-animate", { type: "chars" });
+
+      gsap.from(split.chars, {
+        y: 10,
+        skewY: 20,
+        opacity: 0,
+        stagger: 0.025,
+        duration: 0.02,
+        ease: "expo.out",
+      });
+
+      /* Paragraph – fade RIGHT (slightly delayed) */
+      // gsap.from(".text-animate", {
+      //   x: 100,
+      //   opacity: 0,
+      //   delay: 0.15,
+      //   duration: 1.3,
+      //   ease: "power3.out",
+      //   scrollTrigger: sectionTrigger,
+      // });
+
+      /* Stats cards */
+      gsap.from(".stat-card-left", {
+        y: 80,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power4.out",
+        scrollTrigger: sectionTrigger,
+      });
+
+      gsap.from(".stat-card-right", {
+        y: 80,
+        opacity: 0,
+        delay: 0.15,
+        duration: 1.2,
+        ease: "power4.out",
+        scrollTrigger: sectionTrigger,
+      });
+
+      /* CTA button – scale + fade UP */
+      gsap.from(".cta-button", {
+        y: 60,
+        scale: 0.9,
+        opacity: 0,
+        duration: 1.1,
+        ease: "power4.out",
+        scrollTrigger: sectionTrigger,
+      });
+    </script>
+
+    <!-- about -->
+    <section class="px-4 md:px-8 lg:px-12 py-6 lg:py-16 overflow-hidden">
+      <div class=" mx-auto">
+        <div
+          class="bg-[#2b1f3f] rounded-3xl px-3 py-6 md:p-10 flex flex-col lg:flex-row items-center gap-12 about-wrap"
+        >
+          <!-- IMAGE SIDE -->
+          <div class="relative w-full lg:w-1/2 about-image">
+            <img
+              src="../Assets1/about2.webp"
+              alt="about"
+              class="rounded-2xl w-full h-[300px] lg:h-full  object-cover"
+            />
+          </div>
+
+          <!-- TEXT SIDE -->
+          <div class="w-full lg:w-1/2 text-white about-text">
+            <span
+              class="inline-block border border-violet-300 px-4 py-1 rounded-full text-sm tracking-wider mb-6"
             >
-              <div class="text-primary text-3xl font-bold">01</div>
+              ABOUT US
+            </span>
+
+            <h2
+              class="text-4xl xl:text-5xl font-semibold leading-tight mb-6 built-about"
+            >
+              Built for Marketers,<br />Designed with Heart
+            </h2>
+
+            <p class="text-gray-300 text-lg leading-relaxed max-w-xl mb-12">
+              We're a team of marketers, designers, and engineers who believe
+              automation should feel human. Our mission is to help brands grow
+              while keeping their voice.
+            </p>
+
+            <!-- METRICS -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 about-metrics">
               <div>
-                <h3 class="text-xl font-semibold">Subscribe For Free</h3>
-                <p class="text-gray-600">
-                  Join the community and get instant access weekly. , optio
-                  excepturi debitis accusantium a laudantium expedita cum harum
-                  quaerat repudiandae, aliquid eligendi totam omnis.
-                </p>
+                <div class="flex items-end gap-1">
+                  <h3
+                    class="text-3xl text-violet-400 font-semibold stat-num"
+                    data-target="500"
+                  >
+                    500
+                  </h3>
+                  <span class="text-3xl text-violet-400 font-semibold">k+</span>
+                </div>
+                <p class="text-sm text-gray-300">Active Users</p>
               </div>
-            </div>
 
-            <div
-              data-aos="zoom-in-right"
-              data-aos-delay="110"
-              class="flex gap-4"
-            >
-              <div class="text-primary text-3xl font-bold">02</div>
               <div>
-                <h3 class="text-xl font-semibold">Receive Curated Insights</h3>
-                <p class="text-gray-600">
-                  We send researched, helpful content made for you. , optio
-                  excepturi debitis accusantium a laudantium expedita cum harum
-                  quaerat repudiandae, aliquid eligendi totam omnis.
-                </p>
+                <h3
+                  class="text-3xl text-violet-400 font-semibold stat-num"
+                  data-target="200"
+                >
+                  200M+
+                </h3>
+                <p class="text-sm text-gray-300">Emails Sent</p>
               </div>
-            </div>
 
-            <div
-              data-aos="zoom-in-right"
-              data-aos-delay="130"
-              class="flex gap-4"
-            >
-              <div class="text-primary text-3xl font-bold">03</div>
               <div>
-                <h3 class="text-xl font-semibold">Take Action & Grow</h3>
-                <p class="text-gray-600">
-                  Use insights to improve your skills, business & life. , optio
-                  excepturi debitis accusantium a laudantium expedita cum harum
-                  quaerat repudiandae, aliquid eligendi totam omnis.
-                </p>
+                <h3
+                  class="text-3xl text-violet-400 font-semibold stat-num"
+                  data-target="99"
+                >
+                  99%
+                </h3>
+                <p class="text-sm text-gray-300">Satisfaction</p>
+              </div>
+
+              <div>
+                <h3
+                  class="text-3xl text-violet-400 font-semibold stat-num"
+                  data-target="99"
+                >
+                  99.9%
+                </h3>
+                <p class="text-sm text-gray-300">Deliverability Rate</p>
               </div>
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Image -->
-        <div data-aos="zoom-in-left" data-aos-delay="100" class="w-full h-full">
+    <script>
+      const counters = document.querySelectorAll(".stat-num");
+      let counterPlayed = false;
+
+      function animateCounters() {
+        if (counterPlayed) return;
+        counterPlayed = true;
+
+        counters.forEach((counter) => {
+          const target = parseFloat(counter.dataset.target);
+          const isDecimal = target % 1 !== 0;
+          const duration = 1800;
+          const startTime = performance.now();
+
+          function update(now) {
+            const progress = Math.min((now - startTime) / duration, 1);
+            const value = target * progress;
+
+            counter.textContent = isDecimal
+              ? value.toFixed(1)
+              : Math.floor(value).toLocaleString();
+
+            if (progress < 1) requestAnimationFrame(update);
+          }
+
+          requestAnimationFrame(update);
+        });
+      }
+
+      ScrollTrigger.create({
+        trigger: ".about-metrics",
+        start: "top 85%",
+        onEnter: animateCounters,
+      });
+    </script>
+
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      gsap.from(".about-image", {
+        scrollTrigger: { trigger: ".about-image", start: "top 85%" },
+        x: -80,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+      });
+
+      // gsap.from(".about-text", {
+      //   scrollTrigger: { trigger: ".about-text", start: "top 85%" },
+      //   x: 80,
+      //   opacity: 0,
+      //   duration: 1,
+      //   ease: "power3.out",
+      // });
+
+      gsap.registerPlugin(SplitText);
+
+      const splitabout = new SplitText(".built-about", { type: "chars" });
+
+      gsap.from(splitabout.chars, {
+        scrollTrigger: { trigger: ".about-text", start: "top 85%" },
+        scale: 0,
+        rotation: 180,
+        opacity: 0,
+        stagger: 0.03,
+        duration: 0.7,
+        ease: "back.out(1.8)",
+      });
+
+      gsap.from(".about-metrics div", {
+        scrollTrigger: { trigger: ".about-metrics", start: "top 90%" },
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.15,
+      });
+    </script>
+
+    <!-- Customer Satisfaction grid -->
+    <section class="relative bg-[#f7f7fb] py-8 px-4 md:px-8 lg:px-12 overflow-hidden">
+      <div
+        class=" mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6"
+      >
+        <!-- LEFT GRID -->
+        <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Customer Satisfaction -->
+          <div
+            class="card-satisfaction relative rounded-2xl overflow-hidden shadow-xl"
+          >
+            <img
+              src="../Assets1/subscribe1.webp"
+              alt="card"
+              class="absolute inset-0 w-full h-full object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-linear-to-t from-black/70 via-black/40 to-transparent"
+            ></div>
+
+            <div
+              class="relative z-10 p-6 text-white h-full flex flex-col justify-between"
+            >
+              <span
+                class="inline-flex items-center gap-2 bg-white text-black px-3 py-1 rounded-full text-sm w-fit"
+              >
+                <span
+                  class="h-6 w-6 rounded-full bg-purple-600 flex items-center justify-center text-white"
+                  >😊</span
+                >
+                Customer Satisfaction
+              </span>
+
+              <div>
+                <h3 class="text-5xl font-semibold">99.9%</h3>
+                <p class="mt-2 text-sm opacity-90">
+                  Support that's human, fast,<br />and actually helpful.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Deliverability -->
+          <div
+            class="card-delivery relative rounded-2xl overflow-hidden shadow-xl"
+          >
+            <img
+              src="../Assets1/service1.webp"
+              alt="service"
+              class="absolute inset-0 w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-black/50"></div>
+
+            <div
+              class="relative z-10 p-6 text-white h-full flex flex-col justify-end"
+            >
+              <div
+                class="absolute top-4 right-4 h-10 w-10 rounded-full bg-purple-600 flex items-center justify-center shadow-lg"
+              >
+                ✈️
+              </div>
+              <p class="text-sm">Deliverability Rate</p>
+              <h3 class="text-4xl font-semibold">99.9%</h3>
+            </div>
+          </div>
+
+          <!-- Team image -->
+          <div class="card-team rounded-2xl overflow-hidden shadow-xl">
+            <img
+              src="../Assets1/home3.webp"
+              alt="back-bg"
+              class="w-full h-full object-cover"
+            />
+          </div>
+
+          <!-- Active users -->
+          <div
+            class="card-users bg-[#2a2143] rounded-2xl p-6 text-white shadow-xl flex flex-col justify-end"
+          >
+            <h3 class="text-4xl text-purple-400 font-semibold">50K+</h3>
+            <p class="text-sm mt-1">Active user</p>
+
+            <div class="flex -space-x-3 mt-4">
+              <img
+                class="h-16 w-16 rounded-full border-2 border-[#2a2143] object-cover object-top"
+                src="../Assets1/men1.webp"
+                alt="prof1"
+              />
+              <img
+                class="h-16 w-16 rounded-full border-2 border-[#2a2143] object-cover object-top"
+                src="../Assets1/men3.webp"
+                alt="prof2"
+              />
+              <img
+                class="h-16 w-16 rounded-full border-2 border-[#2a2143] object-cover object-top"
+                src="../Assets1/mentor3.webp"
+                alt="prof3"
+              />
+              <img
+                class="h-16 w-16 rounded-full border-2 border-[#2a2143] object-cover object-top"
+                src="../Assets1/men4.webp"
+                alt="prof4"
+              />
+            </div>
+          </div>
+
+          <!-- Emails sent -->
+          <!-- <div class="card-mails relative rounded-2xl overflow-hidden shadow-xl">
+        <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0" class="absolute inset-0 w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-black/50"></div>
+
+        <div class="relative z-10 p-6 text-white h-full flex flex-col justify-end">
+          <div class="absolute top-4 right-4 h-10 w-10 rounded-full bg-purple-600 flex items-center justify-center shadow-lg">
+            ✉️
+          </div>
+          <p class="text-sm">Emails Sent</p>
+          <h3 class="text-4xl font-semibold">+100 M</h3>
+        </div>
+      </div> -->
+        </div>
+
+        <!-- RIGHT DASHBOARD -->
+        <div
+          class="card-dashboard lg:col-span-5 relative rounded-3xl bg-[#2a2143] overflow-hidden shadow-2xl"
+        >
+          <div
+            class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-size-[18px_18px]"
+          ></div>
+
           <img
-            src="../Assets1/home2-1.webp"
-            class="rounded-2xl shadow-xl w-full sm:h-[300px] lg:h-full object-cover"
-            alt="home-bg"
+            src="../Assets1/dash.webp"
+            alt="dashboard"
+            class="relative z-10 m-6 h-[300px] object-left object-cover sm:h-[400px] lg:h-full w-full rounded-xl shadow-2xl rotate-3"
           />
         </div>
       </div>
     </section>
 
-    <!-- Why Choose Our Newsletter? -->
-    <section class="py-10 md:py-16 px-3 overflow-hidden">
-      <div class="mx-auto text-center">
-        <h2
-          data-aos="zoom-in"
-          data-aos-delay="50"
-          class="text-3xl md:text-4xl font-bold"
-        >
-          Why Choose Our Newsletter?
-        </h2>
-        <p
-          data-aos="zoom-in"
-          data-aos-delay="70"
-          class="text-gray-600 mt-3 max-w-3xl mx-auto"
-        >
-          Experience premium insights crafted to empower your growth. Lorem
-          ipsum dolor sit amet consectetur, adipisicing elit. Ratione optio
-          amet, aliquid ab repudiandae at fugiat aliquam, maxime veritatis ex
-          nam id quas? Veniam iste aliquid voluptates, autem dolor expedita.
-        </p>
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
 
-        <div class="grid md:grid-cols-3 gap-10 mt-14 py-4">
-          <!-- Card -->
-          <div data-aos="zoom-in-right" data-aos-delay="50">
-            <div
-              class="p-8 bg-white rounded-2xl shadow-xl transition border-l-8 border-primary"
+      const fadeUp = (selector, delay = 0) => {
+        gsap.from(selector, {
+          y: 80,
+          opacity: 0,
+          duration: 1.2,
+          delay,
+          ease: "power4.out",
+          scrollTrigger: {
+            trigger: selector,
+            start: "top 85%",
+          },
+        });
+      };
+
+      fadeUp(".card-satisfaction");
+      fadeUp(".card-delivery", 0.1);
+      fadeUp(".card-team", 0.15);
+      fadeUp(".card-users", 0.2);
+
+      gsap.from(".card-dashboard img", {
+        x: 120,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power2.in",
+        scrollTrigger: {
+          trigger: ".card-dashboard",
+          start: "top 80%",
+        },
+      });
+    </script>
+
+
+    <!-- WHY CHOOSE US -->
+    <section class="bg-white py-8 lg:py-16 px-4 md:px-8 lg:px-12 overflow-hidden">
+      <div class=" mx-auto ">
+        <!-- Header -->
+        <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start mb-10 md:mb-20">
+          <div>
+            <span
+              class="inline-block px-6 py-2 border border-purple-300 rounded-full text-sm tracking-widest text-purple-500 why-tag"
             >
-              <div class="bg-primary/10 p-4 rounded-xl w-fit mx-auto">
-                <i class="fa-solid fa-bolt text-primary text-3xl"></i>
-              </div>
-              <h3 class="text-xl font-semibold mt-5">Fast Updates</h3>
-              <p class="text-gray-600 mt-2">
-                Get the latest curated info delivered weekly.
-              </p>
-            </div>
+              WHY CHOOSE US
+            </span>
+
+            <h2 class="text-2xl md:text-3xl lg:text-54l font-light mt-8 leading-tight why-title">
+              Why Leading Brands<br />Choose Us
+            </h2>
           </div>
 
-          <div data-aos="zoom-in" data-aos-delay="70">
-            <div
-              class="p-8 bg-white rounded-2xl shadow-xl transition border-l-8 border-primary"
-            >
-              <div class="bg-primary/10 p-4 rounded-xl w-fit mx-auto">
-                <i class="fa-solid fa-newspaper text-primary text-3xl"></i>
-              </div>
-              <h3 class="text-xl font-semibold mt-5">Premium Content</h3>
-              <p class="text-gray-600 mt-2">
-                Handpicked topics you actually want to read.
-              </p>
-            </div>
+          <p class="text-lg text-gray-600 leading-relaxed max-w-xl why-text">
+            We're not just another email tool. We're your partner in delivering
+            campaigns that scale with empathy, connect with purpose, and convert
+            with clarity.
+          </p>
+        </div>
+
+        <!-- Content -->
+        <div class="grid lg:grid-cols-2 gap-12 items-start">
+          <!-- Image -->
+          <div class="why-image">
+            <img src="../Assets1/about1.webp" class="rounded-3xl shadow-xl sm:h-[300px] lg:h-full w-full object-cover" />
           </div>
 
-          <div data-aos="zoom-in-left" data-aos-delay="90">
-            <div
-              class="p-8 bg-white rounded-2xl shadow-xl transition border-l-8 border-primary"
-            >
-              <div class="bg-primary/10 p-4 rounded-xl w-fit mx-auto">
-                <i class="fa-solid fa-shield-halved text-primary text-3xl"></i>
+          <!-- Cards -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 why-cards">
+            <div class="why-card">
+              <div class="icon-circle">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
               </div>
-              <h3 class="text-xl font-semibold mt-5">Fully Secure</h3>
-              <p class="text-gray-600 mt-2">
-                Your data is always safe and never shared.
-              </p>
+              <h3>Automation That Feels</h3>
+            </div>
+
+            <div class="why-card">
+              <div class="icon-circle">
+                <i class="fa-solid fa-code"></i>
+              </div>
+              <h3>No-Code, No Headache</h3>
+            </div>
+
+            <div class="why-card">
+              <div class="icon-circle">
+                <i class="fa-solid fa-headset"></i>
+              </div>
+              <h3>Real Support From Real People</h3>
+            </div>
+
+            <div class="why-card">
+              <div class="icon-circle">
+                <i class="fa-solid fa-chart-line"></i>
+              </div>
+              <h3>Proven Results, Backed by Data</h3>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <style>
+      .why-card {
+        border: 1px solid #e9d5ff;
+        border-radius: 18px;
+        padding: 32px;
+        transition: all 0.3s ease;
+        background: white;
+      }
+
+      .why-card h3 {
+        font-size: 1.25rem;
+        margin-top: 18px;
+        line-height: 1.4;
+      }
+
+      .icon-circle {
+        width: 52px;
+        height: 52px;
+        background: #6d28d9;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.2rem;
+      }
+    </style>
+
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      gsap.from(".why-tag", {
+        scrollTrigger: { trigger: ".why-tag", start: "top 85%" },
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+      });
+      gsap.from(".why-title", {
+        scrollTrigger: { trigger: ".why-title", start: "top 85%" },
+        y: 40,
+        opacity: 0,
+        duration: 1,
+      });
+      gsap.from(".why-text", {
+        scrollTrigger: { trigger: ".why-text", start: "top 85%" },
+        y: 30,
+        opacity: 0,
+        duration: 0.9,
+      });
+
+      gsap.from(".why-image", {
+        scrollTrigger: { trigger: ".why-image", start: "top 85%" },
+        x: -80,
+        opacity: 0,
+        duration: 1,
+      });
+
+      gsap.from(".why-card", {
+        scrollTrigger: {
+          trigger: ".why-cards",
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none none",
+        },
+        y: 60,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power3.out",
+        stagger: 0.2,
+        clearProps: "opacity,transform",
+      });
+    </script>
+
+<!-- HOW IT WORKS -->
+    <section class="bg-white py-8 md:py-16 px-4 md:px-8 lg:px-12 overflow-hidden">
+      <div class=" mx-auto ">
+        <!-- Header -->
+        <div class="grid lg:grid-cols-2 gap-6 lg:gap-16 items-start mb-6 md:mb-16">
+          <div>
+            <span
+              class="inline-block px-6 py-2 border border-purple-300 rounded-full text-sm tracking-widest text-purple-500 how-tag"
+            >
+              HOW IT WORKS
+            </span>
+
+            <h2 class="text-2xl md:text-3xl lg:text-4xl font-light mt-10 leading-tight how-title">
+              Smart, Simple, and<br />Human
+            </h2>
+          </div>
+
+          <p class="text-lg text-gray-600 leading-relaxed max-w-xl how-text">
+            We've made powerful email automation feel easy and personal. In just
+            a few steps, you can create campaigns that scale without losing
+            authenticity.
+          </p>
+        </div>
+
+        <div class="flex flex-col justify-center gap-8">
+          <!-- Main Card -->
+          <div
+            class="bg-[#2b1f3f] rounded-3xl px-4 py-6 md:p-10 flex flex-col lg:flex-row items-center gap-12 how-card overflow-hidden"
+          >
+            <!-- Text -->
+            <div class="text-white w-full lg:w-1/2">
+              <div class="flex items-center sm:items-start gap-4 mb-6">
+                <span
+                  class="w-12 h-12 rounded-full border border-white flex items-center justify-center text-lg"
+                  >01</span
+                >
+              </div>
+
+              <h3 class="text-3xl font-medium mb-4">Set Up Your Audience</h3>
+
+              <p class="text-gray-300 leading-relaxed max-w-md">
+                Import your list or integrate with your CRM. Segment contacts
+                based on behavior, actions, or traits—no manual work needed.
+              </p>
+            </div>
+
+            <!-- Visual -->
+            <div class="relative w-full lg:w-1/2 how-visual">
+              <img
+                src="../Assets1/hom2-1-1.webp"
+                alt="visual"
+                class="rounded-2xl shadow-2xl w-full h-72 object-cover scale-x-[-1]"
+              />
+
+              <!-- Overlay Card -->
+              <div
+                class="absolute -left-8 top-20 bg-white rounded-xl p-4 shadow-xl overlay-card"
+              >
+                <img
+                  src="../Assets1/hom2-1.webp"
+                  alt="visual"
+                  class="w-40 h-full object-contain"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-[#2b1f3f] rounded-3xl px-4 py-6 md:p-10 flex flex-col lg:flex-row items-center gap-14 step2-card overflow-hidden"
+          >
+            <!-- Visual -->
+            <div class="relative w-full lg:w-1/2 how-visual">
+              <img
+                src="../Assets1/work.webp"
+                alt="visual"
+                class="rounded-2xl shadow-2xl w-full h-72 object-cover"
+              />
+              step2-visual
+              <!-- Overlay Card -->
+              <div
+                class="absolute -right-8 top-20 bg-white rounded-xl p-4 shadow-xl floating-ui"
+              >
+                <img
+                  src="../Assets1/hom2-1.webp"
+                  alt="visual"
+                  class="w-40 h-full object-contain"
+                />
+              </div>
+            </div>
+
+            <!-- Text -->
+            <div class="text-white w-full lg:w-1/2 step2-text">
+              <span
+                class="w-12 h-12 rounded-full border border-white flex items-center sm:items-start justify-center mb-6"
+              >
+                02
+              </span>
+
+              <h3 class="text-3xl font-medium mb-4">
+                Create Emails with Heart
+              </h3>
+
+              <p class="text-gray-300 leading-relaxed max-w-md">
+                Use our drag & drop builder to craft beautiful messages. Add
+                personal touches with AI-assisted suggestions that sound like
+                you.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="bg-[#2b1f3f] rounded-3xl px-4 py-6 md:p-10 flex flex-col lg:flex-row items-center gap-14 step3-card overflow-hidden"
+          >
+            <!-- Text -->
+            <div class="text-white w-full lg:w-1/2 step3-text">
+              <span
+                class="w-12 h-12 rounded-full border border-white flex sm:items-start items-center justify-center mb-6"
+              >
+                03
+              </span>
+
+              <h3 class="text-3xl font-medium mb-4">Build Smart Workflows</h3>
+
+              <p class="text-gray-300 leading-relaxed max-w-md">
+                Design email journeys with triggers, delays, and conditions.
+                From welcome emails to win-back campaigns—fully automated, fully
+                human.
+              </p>
+            </div>
+
+            <!-- Visual -->
+            <div class="relative w-full lg:w-1/2 step3-visual">
+              <img
+                src="../Assets1/Group-Discussion.webp"
+                alt="gd"
+                class="rounded-2xl shadow-2xl w-full h-72 object-cover"
+              />
+
+              <!-- Floating Chart Card -->
+              <div
+                class="absolute -left-24 top-20 bg-white rounded-xl shadow-xl p-5 floating-chart"
+              >
+                <img class="w-40 h-full object-contain" src="../Assets1/sales.webp" alt="sale">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      gsap.from(".how-tag", {
+        scrollTrigger: { trigger: ".how-tag", start: "top 85%" },
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+      });
+      gsap.from(".how-title", {
+        scrollTrigger: { trigger: ".how-title", start: "top 85%" },
+        y: 40,
+        opacity: 0,
+        duration: 1,
+      });
+      gsap.from(".how-text", {
+        scrollTrigger: { trigger: ".how-text", start: "top 85%" },
+        y: 30,
+        opacity: 0,
+        duration: 0.9,
+      });
+
+      gsap.from(".how-card", {
+        scrollTrigger: { trigger: ".how-card", start: "top 80%" },
+        y: 80,
+        opacity: 0,
+        duration: 1.1,
+        ease: "power3.out",
+      });
+
+      gsap.from(".how-visual", {
+        scrollTrigger: { trigger: ".how-visual", start: "top 85%" },
+        x: 80,
+        opacity: 0,
+        duration: 1,
+      });
+
+      gsap.from(".overlay-card", {
+        scrollTrigger: { trigger: ".overlay-card", start: "top 85%" },
+        scale: 0.6,
+        opacity: 0,
+        duration: 0.8,
+        ease: "back.out(1.7)",
+      });
+    </script>
+
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      gsap.from(".step2-card", {
+        scrollTrigger: { trigger: ".step2-card", start: "top 80%" },
+        y: 80,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+      });
+
+      gsap.from(".step2-text", {
+        scrollTrigger: { trigger: ".step2-text", start: "top 85%" },
+        x: 80,
+        opacity: 0,
+        duration: 1,
+      });
+
+      gsap.from(".floating-ui", {
+        scrollTrigger: { trigger: ".floating-ui", start: "top 85%" },
+        scale: 0.6,
+        opacity: 0,
+        duration: 0.8,
+        ease: "back.out(1.7)",
+      });
+    </script>
+
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      gsap.from(".step3-card", {
+        scrollTrigger: { trigger: ".step3-card", start: "top 80%" },
+        y: 80,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+      });
+
+      gsap.from(".step3-text", {
+        scrollTrigger: { trigger: ".step3-text", start: "top 85%" },
+        x: -80,
+        opacity: 0,
+        duration: 1,
+      });
+
+      gsap.from(".step3-visual", {
+        scrollTrigger: { trigger: ".step3-visual", start: "top 85%" },
+        x: 80,
+        opacity: 0,
+        duration: 1,
+      });
+
+      gsap.from(".floating-chart", {
+        scrollTrigger: { trigger: ".floating-chart", start: "top 85%" },
+        scale: 0.6,
+        opacity: 0,
+        duration: 0.8,
+        ease: "back.out(1.7)",
+      });
+    </script>
+
+    <section class="bg-[#111216] px-4 md:px-8 lg:px-12 py-8 md:py-16 text-white overflow-hidden">
+  <div class=" mx-auto ">
+
+    <!-- Header -->
+    <div class="text-center mb-20">
+      <span class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#1d2235] text-indigo-400 text-sm pricing-tag">
+        <i class="fa-solid fa-asterisk"></i> PRICING PLAN
+      </span>
+
+      <h2 class="text-5xl font-light mt-8 pricing-title">
+        Choose the perfect plan<br>
+        <span class="text-indigo-400">for your business</span>
+      </h2>
+    </div>
+
+    <!-- Cards -->
+    <div class="grid grid-cols-1 smlg:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 pricing-grid">
+
+      <!-- Enterprise -->
+      <div class="pricing-card featured">
+        <span class="plan-badge">24 months subscription plan</span>
+        <h3>ENTERPRISE ELITE</h3>
+        <p class="price">$299 <span>/month</span></p>
+        <a href="./404.html" class="w-full px-8 py-3 rounded-full border border-white/30">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+
+        <ul>
+          <li><i class="fa-solid fa-check"></i> Unlimited emails per month</li>
+          <li><i class="fa-solid fa-check"></i> AI-powered email automation</li>
+          <li><i class="fa-solid fa-check"></i> Data analytics & A/B testing</li>
+          <li><i class="fa-solid fa-check"></i> Priority customer support</li>
+          <li><i class="fa-solid fa-check"></i> Dedicated account manager</li>
+        </ul>
+
+        <p class="guarantee"><i class="fa-solid fa-shield-check"></i> 100% money-back guarantee</p>
+      </div>
+
+      <!-- Growth -->
+      <div class="pricing-card">
+        <span class="plan-badge">12 months subscription plan</span>
+        <h3>GROWTH PRO</h3>
+        <p class="price">$199 <span>/month</span></p>
+        <a href="./404.html" class="w-full px-8 py-3 rounded-full border border-white/30">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+
+        <ul>
+          <li><i class="fa-solid fa-check"></i> Up to 500,000 email per month</li>
+          <li><i class="fa-solid fa-check"></i> AI-powered email automation</li>
+          <li><i class="fa-solid fa-check"></i> Data analytics & A/B testing</li>
+          <li><i class="fa-solid fa-check"></i> Priority customer support</li>
+          <li class="muted"><i class="fa-solid fa-xmark"></i> Dedicated account manager</li>
+        </ul>
+
+        <p class="guarantee"><i class="fa-solid fa-shield-check"></i> 100% money-back guarantee</p>
+      </div>
+
+      <!-- Startup -->
+      <div class="pricing-card">
+        <span class="plan-badge">3 months subscription plan</span>
+        <h3>STARTUP BOOST</h3>
+        <p class="price">$99 <span>/month</span></p>
+        <a href="./404.html" class="w-full px-8 py-3 rounded-full border border-white/30">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+
+        <ul>
+          <li><i class="fa-solid fa-check"></i> Up to 100,000 email per month</li>
+          <li><i class="fa-solid fa-check"></i> AI-powered email automation</li>
+          <li><i class="fa-solid fa-check"></i> Data analytics & A/B testing</li>
+          <li class="muted"><i class="fa-solid fa-xmark"></i> Priority customer support</li>
+          <li class="muted"><i class="fa-solid fa-xmark"></i> Dedicated account manager</li>
+        </ul>
+
+        <p class="guarantee"><i class="fa-solid fa-shield-check"></i> 100% money-back guarantee</p>
+      </div>
+
+      <!-- Basic -->
+      <div class="pricing-card">
+        <span class="plan-badge">1 month subscription plan</span>
+        <h3>BASIC ESSENTIALS</h3>
+        <p class="price">$49 <span>/month</span></p>
+        <a href="./404.html" class="w-full px-8 py-3 rounded-full border border-white/30">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+
+        <ul>
+          <li><i class="fa-solid fa-check"></i> Up to 50,000 email per month</li>
+          <li><i class="fa-solid fa-check"></i> AI-powered email automation</li>
+          <li class="muted"><i class="fa-solid fa-xmark"></i> Data analytics & A/B testing</li>
+          <li class="muted"><i class="fa-solid fa-xmark"></i> Priority customer support</li>
+          <li class="muted"><i class="fa-solid fa-xmark"></i> Dedicated account manager</li>
+        </ul>
+
+        <p class="guarantee"><i class="fa-solid fa-shield-check"></i> 100% money-back guarantee</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<style>
+.pricing-card{
+  border:1px solid hsl(229, 20%, 35%);
+  border-radius:18px;
+  padding:32px;
+  background:#151720;
+}
+
+.pricing-card.featured{
+  background:linear-gradient(180deg,#24316f,#1b2555);
+}
+
+.plan-badge{
+  background:#1d2235;
+  padding:6px 14px;
+  border-radius:999px;
+  font-size:12px;
+}
+
+.pricing-card h3{margin-top:18px; letter-spacing:1px; font-size:13px;}
+.price{font-size:44px; font-weight:600; margin:12px 0;}
+.price span{font-size:16px; color:#9fa4ff;}
+
+ul{margin-top:24px; line-height:2}
+.muted{color:hsl(231, 10%, 61%)}
+
+.guarantee{margin-top:24px; font-size:14px; color:#aeb2ff}
+</style>
+
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.from(".pricing-tag", {scrollTrigger:{trigger:".pricing-tag",start:"top 85%"}, y:30, opacity:0, duration:.7});
+gsap.from(".pricing-title", {scrollTrigger:{trigger:".pricing-title",start:"top 85%"}, y:40, opacity:0, duration:.9});
+
+gsap.from(".pricing-card", {
+  scrollTrigger:{trigger:".pricing-grid",start:"top 80%"},
+  y:80,
+  opacity:0,
+  duration:1,
+  stagger:.15
+});
+</script>
+
+
     <!-- Curved Glass Testimonials -->
-    <section class="bg-gray-50 px-3 py-10 md:py-20 relative overflow-hidden">
+    <section class="bg-gray-50 px-4 md:px-8 lg:px-12 py-10 md:py-20 relative overflow-hidden">
       <!-- Curved Background -->
       <div
         class="absolute inset-x-0 -top-40 h-96 bg-primary opacity-10 rounded-b-[50%] blur-3xl"
@@ -657,7 +1484,7 @@
     </section>
 
     <!-- Start Your Newsletter in Minutes -->
-    <section class="px-3 py-16 text-black overflow-hidden">
+    <section class="px-4 md:px-8 lg:px-12 py-16 text-black overflow-hidden">
       <div class="max-w-5xl mx-auto text-center space-y-6">
         <h2 class="text-3xl md:text-4xl font-bold">
           Start Your Newsletter in Minutes
@@ -677,7 +1504,7 @@
 
     <!-- footer -->
     <footer class="bg-gray-900 text-gray-300 overflow-hidden">
-      <div class="mx-auto px-3 py-8 grid sm:grid-cols-2 md:grid-cols-4 gap-12">
+      <div class="mx-auto px-4 md:px-8 lg:px-12 py-8 grid sm:grid-cols-2 md:grid-cols-4 gap-12">
         <!-- BRAND + TEXT -->
         <div class="space-y-4">
           <h2 class="text-2xl font-bold text-white">NewsletterPro</h2>
@@ -792,7 +1619,7 @@
         </div>
       </div>
 
-      <div class="overflow-hidden px-3">
+      <div class="overflow-hidden px-4 md:px-8 lg:px-12">
         <!-- Google Map -->
         <div class="rounded-2xl w-full overflow-hidden shadow-lg mb-3">
           <iframe
