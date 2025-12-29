@@ -1761,7 +1761,7 @@
             </div>
 
             <p class="review-text">
-              OneSecond makes email marketing effortless from start to finish!
+              StackMail makes email marketing effortless from start to finish!
               The A/B testing feature helped us optimize subject lines, leading
               to significantly higher open rates.
             </p>
@@ -1783,7 +1783,7 @@
             </div>
 
             <p class="review-text">
-              I used to struggle with email campaigns, but OneSecond simplified
+              I used to struggle with email campaigns, but StackMail simplified
               everything. My sales have significantly increased since using it!
             </p>
 
@@ -1804,7 +1804,7 @@
             </div>
 
             <p class="review-text">
-              With OneSecond, our email campaigns feel more personalized and
+              With StackMail, our email campaigns feel more personalized and
               effective. We've seen a noticeable increase in responses and
               conversions.
             </p>
@@ -1826,7 +1826,7 @@
             </div>
 
             <p class="review-text">
-              Our newsletter engagement has skyrocketed thanks to OneSecond.
+              Our newsletter engagement has skyrocketed thanks to StackMail.
               Their easy-to-use platform and smart segmentation features are
               outstanding.
             </p>
@@ -2232,7 +2232,7 @@
       >
         <!-- BRAND + TEXT -->
         <div class="space-y-4">
-          <h2 class="text-2xl font-bold text-white">NewsletterPro</h2>
+          <h2 class="text-2xl font-bold text-white">StackMail</h2>
           <p class="text-gray-400 text-sm md:text-lg">
             Create, design, and send stunning email newsletters with powerful
             automation and analytics.
@@ -2470,26 +2470,32 @@
           image: "./Assets1/men1.webp",
           name: "Briar Martin",
           handle: "@neilstellar",
+          content: "@StackMail is a software engineer at Google. He has been working on the Chrome browser for the past 5 years and has been involved in the development of several major features and better comments.",
           date: "April 20, 2025",
         },
         {
           image: "./Assets1/men2.webp",
           name: "Avery Johnson",
           handle: "@averywrites",
-          date: "May 10, 2025",
+          content: "@StackMail is a writer and editor who has been working in the publishing industry for over a decade. He has written for several and the major publications and has been featured in several anthologies.",
+          date: "April 25, 2025",
         },
         {
           image: "./Assets1/men3.webp",
           name: "Jordan Lee",
           handle: "@jordantalks",
-          date: "June 5, 2025",
+          content: "@StackMail is a public speaker and entrepreneur who has been giving talks and workshops on entrepreneurship and personal development for the past 3 years working better than others.",
+          date: "May 10, 2025",
         },
+
         {
           image: "./Assets1/men4.webp",
           name: "Avery Johnson",
           handle: "@averywrites",
+          content: "@StackMail is a writer and editor who has been working in the publishing industry for over a decade. He has written for several major publications and has been featured in several anthologies.",
           date: "May 10, 2025",
         },
+
       ];
 
       const row1 = document.getElementById("row1");
@@ -2509,8 +2515,7 @@
                     <span class="text-xs text-slate-500">${card.handle}</span>
                 </div>
             </div>
-            <p class="text-sm py-4 text-gray-800">Radiant made undercutting all of our competitors an absolute
-                breeze.</p>
+            <p class="text-sm py-4 text-gray-800">${card.content}</p>
             <div class="flex items-center justify-between text-slate-500 text-xs">
                 <div class="flex items-center gap-1">
                     <span>Posted on</span>
